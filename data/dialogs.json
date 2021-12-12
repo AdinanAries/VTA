@@ -1,0 +1,35 @@
+{
+    "Dialogs":[
+        {
+            "Type": "greeting",
+            "Query": "Hey!",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "second",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "Hello, How are you today?"
+        },{
+            "Type": "query",
+            "Query": "I want to cancel my flight",
+            "Keys": [
+                "cancel", "flight"
+            ],
+            "Person":{
+                "Type": "first",
+                "Keys": [
+                    "i", "my"
+                ]
+            },
+            "Reply": "Ok cool, umm, what is your reference number"
+        }
+    ],
+    "Noises":[
+        "is", "are", "to", "i", "my"
+    ]
+    
+}
