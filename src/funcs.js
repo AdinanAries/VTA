@@ -6,7 +6,8 @@ const snms = require("../data/synonyms.json");
 /*---Interface---*/
 const talk = () => {
     //console.log(dialogs);
-    console.log(evaluate("Sup What's? are you doing?"))
+    //console.log(evaluate("Sup What's? are you doing?"))
+    console.log(evaluate("Hey!, I want to cancel my flight"))
 }
 
 //function to evaluate request from user
@@ -66,11 +67,15 @@ const cleanup = (sentence) => {
     words = words.map(each=>{
         return each.toLowerCase();
     });
-    //3. removing punctuations
+    //3. removing suffixes
+    words = words.map(word => {
+        return suffix_cleanup(word);
+    });
+    //4. removing punctuations
     words = words.map(word => {
         return punct_cleanup(word);
     });
-    //3. removing noise words
+    //5. removing noise words
     let key_words = words.filter(each=>{
         return !dialogs.Noises.includes(each);
     });
@@ -89,6 +94,20 @@ const punct_cleanup = (word_p) => {
     dialogs.Punctuations.forEach(punct=>{
         if(word)
             word = word.split(punct).join("");
+        else word = ""
+    });
+
+    return word;
+}
+
+//removing suffixes
+const suffix_cleanup = (word_p) => {
+    
+    let word = word_p;
+
+    dialogs.Suffixes.forEach(sfx=>{
+        if(word)
+            word = word.split(sfx).join("");
         else word = ""
     });
 

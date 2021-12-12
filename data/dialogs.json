@@ -29,10 +29,13 @@
         }
     ],
     "Noises":[
-        "is", "are", "to", "i", "my", "'s"
+        "is", "are", "to", "i", "my"
     ],
     "Punctuations":[
-        "'", ".", "?"
+        "'", ".", "?", "!", ","
+    ],
+    "Suffixes":[
+        "'s"
     ]
     
 }
