@@ -2,7 +2,7 @@
     "Dialogs":[
         {
             "Type": "greeting",
-            "Query": "Hey!",
+            "Query": "hey",
             "Keys": [
                 "", ""
             ],
@@ -15,7 +15,7 @@
             "Reply": "Hello, How are you today?"
         },{
             "Type": "query",
-            "Query": "I want to cancel my flight",
+            "Query": "i want to cancel my flight",
             "Keys": [
                 "cancel", "flight"
             ],
@@ -29,7 +29,7 @@
         }
     ],
     "Noises":[
-        "is", "are", "to", "i", "my"
+        "is", "are", "to", "i", "my", "'s"
     ],
     "Punctuations":[
         "'", ".", "?"
