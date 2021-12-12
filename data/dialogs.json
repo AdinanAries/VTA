@@ -30,6 +30,9 @@
     ],
     "Noises":[
         "is", "are", "to", "i", "my"
+    ],
+    "Punctuations":[
+        "'", ".", "?"
     ]
     
 }
