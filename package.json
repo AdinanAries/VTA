@@ -1,0 +1,11 @@
+{
+  "name": "vta",
+  "version": "1.0.0",
+  "description": "This is a chatbot for travel agency business",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mohammed Adinan",
+  "license": "ISC"
+}
