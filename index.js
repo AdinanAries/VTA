@@ -1,5 +1,9 @@
 const express = require("express");
 
+const { talk } = require("./src/funcs");
+
+talk();
+
 const app = express();
 
 
