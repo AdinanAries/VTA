@@ -15,6 +15,19 @@
             "Reply": "Hello, How are you today?"
         },{
             "Type": "query",
+            "Query": "who are you",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "second",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "I'm AD... I'll be your assitant around here... Let me know if you need any help"
+        },{
+            "Type": "action",
             "Query": "i want to cancel my flight",
             "Keys": [
                 "cancel", "flight"
@@ -25,7 +38,17 @@
                     "i", "my"
                 ]
             },
-            "Reply": "Ok cool, umm, what is your reference number"
+            "Reply": [
+                "OK cool, umm, please give me the reference number"
+            ],
+            "Expects": "string",
+            "ErrorRes": [
+                "Umm, I think we have the wrong reference"
+            ],
+            "Gets": {
+                "TypeError": true,
+                "AnotherQuery": true
+            }
         }
     ],
     "Noises":[

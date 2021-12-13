@@ -7,13 +7,22 @@ const snms = require("../data/synonyms.json");
 const talk = () => {
     //console.log(dialogs);
     //console.log(evaluate("Sup What's? are you doing?"))
-    console.log(evaluate("Hey!, I want to cancel my flight"))
+    console.log(evaluate("Umm. Who are you Who are you Who are you Who are you Who are you Who are you"))
 }
 
 //function to evaluate request from user
 //may contain sub-functions
 /*---Interface---*/
 const evaluate = (submited_query) => {
+
+    if(submited_query === "" || submited_query === undefined){
+        let reply = [
+            "Umm, did you say something?",
+            "I think something is missing here, come again please?",
+            "I don't get your message here. Did you type something"
+        ];
+        return reply[Math.floor(Math.random() * reply.length)]
+    }
 
     //1. removing noise words returs {words, key_words}
     const { key_words, words } = cleanup(submited_query);
@@ -51,12 +60,123 @@ const evaluate = (submited_query) => {
             })
         }
     });
+    //3. score matching dialogs and return appropriat response
+    let { reply, score} = score_dialog(matching_dialogs, submited_query);
+    if(score > 50){
+        return reply;
+    }if(score < 50){
+        return reply;
+    }
 
-
-    console.log(key_words);
-    console.log(words_and_synonyms);
-    console.log(matching_dialogs);
+    //console.log(key_words);
+    //console.log(words_and_synonyms);
+    //console.log(matching_dialogs);
     //console.log("function to evaluate request from user")
+}
+
+const score_dialog = (matches, submited_query) => {
+    
+    if(matches[0][0].matches.length > 0){
+        if(matches[0][0].matches[0].Query.trim().replaceAll(" ", "") === submited_query.toLowerCase().trim().replaceAll(" ", "")){
+            //console.log("here");
+            //console.log("matches ", matches[0][0]);
+            return {
+                score: "100",
+                reply: matches[0][0].matches[0].Reply
+            }
+        }
+    }
+
+    let q_matches = [];
+    let q_unmatches = [];
+
+    //removing all words without matches
+     matches.forEach(matches_arr => {
+        matches_arr.forEach(each => {
+            if(each.matches.length > 0)
+                q_matches.push(each);
+        });
+    });
+
+    //removing all words with matches
+    matches.forEach(unmatches_arr => {
+        unmatches_arr.forEach(each => {
+            if(each.matches.length < 1)
+                q_unmatches.push(each);
+        });
+    });
+
+    /*--words with matches--*/
+    //removing duplicate matches
+    let non_repetive_matches = []
+    for(let i=0; i<q_matches.length; i++){
+
+        for(let j=i+1; j<q_matches.length; j++){
+            
+            //all matches that are the same
+            if(q_matches[i].matches[0].Query === q_matches[j].matches[0].Query){
+                
+                let item_found = non_repetive_matches.find( item => {
+                     return (
+                         item.matches[0].Query === q_matches[j].matches[0].Query ||
+                         item.matches[0].Query === q_matches[i].matches[0].Query
+                    )
+                });
+                
+                //if item found, just continue, dont add to non repetitive list
+                if(item_found){
+                    continue;
+                }
+                //adding first of matches that are the same
+                non_repetive_matches.push(q_matches[i])
+                continue;
+            }
+            //all matches that are not the same
+            non_repetive_matches.push(q_matches[i]);
+            
+        }
+        
+    }
+    console.log(non_repetive_matches);
+
+    
+    /*--words without matches--*/
+    q_unmatches.forEach(unmatch_arr => {
+        //console.log(unmatch_arr);
+    });
+
+    //when message has more wrong words than right ones
+    //this is usefull for making query suggessions
+    if(q_matches.length < q_unmatches.length){
+        let error_msg = [
+            "Sorry I don't understand what you are saying",
+            "Your message isn't clear",
+            "I don't get what you're saying"
+        ]
+        return {
+            score: "40",
+            reply: error_msg[Math.floor(Math.random() * error_msg.length)]
+        }
+    }
+
+    //if everything doesn't make sense
+    //worst user case
+    if(q_matches.length === 0){
+        let error_msg = [
+            "What are you saying... I don't understand...",
+            "I'm sorry, I can process your message...",
+            "Umm... I don't understand that"
+        ]
+        return {
+            score: "40",
+            reply: error_msg[Math.floor(Math.random() * error_msg.length)]
+        }
+    }
+
+    return {
+        score: "40",
+        reply: "test"
+    }
 }
 
 //removing noise words
