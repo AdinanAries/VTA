@@ -7,7 +7,7 @@ const snms = require("../data/synonyms.json");
 const talk = () => {
     //console.log(dialogs);
     //console.log(evaluate("Sup What's? are you doing?"))
-    console.log(evaluate("Hey, who are you"))
+    console.log(evaluate("who are you, I had pizza for friday dinner, Because My sister doesnt want to be a good girl, orange banana apple pineable peach cassava"))
 }
 
 //function to evaluate request from user
@@ -181,10 +181,22 @@ const score_dialog = (matches, submited_query) => {
             "Your message isn't clear",
             "I don't get what you're saying"
         ]
+        
+        let accuracy_percentage = (100-(100*q_unmatches.length)/(q_matches.length+q_unmatches.length));
+
+        if(accuracy_percentage > 40){
+            return {
+                reason: "more wrong words than right ones",
+                score: accuracy_percentage,
+                reply: q_matches[0].matches[0].Reply,
+                exact_query: q_matches[0].matches[0].Query
+            }
+        }
+
         return {
             reason: "more wrong words than right ones",
-            score: (100*q_unmatches.length)/(q_matches.length+q_unmatches.length),
-            reply: error_msg[Math.floor(Math.random() * error_msg.length)],
+            score: accuracy_percentage,
+            reply: `${error_msg[Math.floor(Math.random() * error_msg.length)]}...Usually peaple say "${q_matches[0].matches[0].Query}"`,
             exact_query: ""
         }
     }
