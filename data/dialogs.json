@@ -14,6 +14,19 @@
             },
             "Reply": "Hello, How are you today?"
         },{
+            "Type": "greeting",
+            "Query": "how are you",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "second",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "I'm doing fine thanks"
+        },{
             "Type": "query",
             "Query": "who are you",
             "Keys": [

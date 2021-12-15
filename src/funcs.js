@@ -7,7 +7,7 @@ const snms = require("../data/synonyms.json");
 const talk = () => {
     //console.log(dialogs);
     //console.log(evaluate("Sup What's? are you doing?"))
-    console.log(evaluate("Umm. Who are you Who are you Who are you Who are you Who are you Who are you"))
+    console.log(evaluate("Hey, who are you"))
 }
 
 //function to evaluate request from user
@@ -57,15 +57,15 @@ const evaluate = (submited_query) => {
                     });
                 })
                 
-            })
+            });
         }
     });
     //3. score matching dialogs and return appropriat response
-    let { reply, score} = score_dialog(matching_dialogs, submited_query);
+    let { reply, score, exact_query, reason} = score_dialog(matching_dialogs, submited_query);
     if(score > 50){
-        return reply;
+        return {exact_query, score, reply, reason};
     }if(score < 50){
-        return reply;
+        return {reply, score, exact_query, reason};
     }
 
     //console.log(key_words);
@@ -76,13 +76,19 @@ const evaluate = (submited_query) => {
 
 const score_dialog = (matches, submited_query) => {
     
-    if(matches[0][0].matches.length > 0){
-        if(matches[0][0].matches[0].Query.trim().replaceAll(" ", "") === submited_query.toLowerCase().trim().replaceAll(" ", "")){
-            //console.log("here");
-            //console.log("matches ", matches[0][0]);
-            return {
-                score: "100",
-                reply: matches[0][0].matches[0].Reply
+    if(matches.length > 0){
+        if(matches[0].length > 0){
+            if(matches[0][0].matches.length > 0){
+                if(matches[0][0].matches[0].Query.trim().replaceAll(" ", "") === submited_query.toLowerCase().trim().replaceAll(" ", "")){
+                    //console.log("here");
+                    //console.log("matches ", matches[0][0]);
+                    return {
+                        reason: "exact match",
+                        score: 100,
+                        reply: matches[0][0].matches[0].Reply,
+                        exact_query: matches[0][0].matches[0].Query
+                    }
+                }
             }
         }
     }
@@ -91,22 +97,34 @@ const score_dialog = (matches, submited_query) => {
     let q_unmatches = [];
 
     //removing all words without matches
-     matches.forEach(matches_arr => {
-        matches_arr.forEach(each => {
-            if(each.matches.length > 0)
-                q_matches.push(each);
+    if(matches.length > 0){
+        matches.forEach(matches_arr => {
+            //console.log(matches_arr);
+            let isArry = Array.isArray(matches_arr);
+            if(!isArry) matches_arr = [matches_arr]
+            console.log(isArry)
+            if(matches_arr.length > 0){
+                matches_arr.forEach(each => {
+                    if(each.matches.length > 0)
+                        q_matches.push(each);
+                });
+            }
         });
-    });
+    }
 
     //removing all words with matches
-    matches.forEach(unmatches_arr => {
-        unmatches_arr.forEach(each => {
-            if(each.matches.length < 1)
-                q_unmatches.push(each);
+    if(matches.length > 0){
+        matches.forEach(unmatches_arr => {
+            if(unmatches_arr.length > 0){
+                unmatches_arr.forEach(each => {
+                    if(each.matches.length < 1)
+                        q_unmatches.push(each);
+                });
+            }
         });
-    });
+    }
 
-    /*--words with matches--*/
+    /*--words with matches------------------------------------*/
     //removing duplicate matches
     let non_repetive_matches = []
     for(let i=0; i<q_matches.length; i++){
@@ -137,10 +155,20 @@ const score_dialog = (matches, submited_query) => {
         }
         
     }
-    console.log(non_repetive_matches);
+    //console.log(non_repetive_matches);
 
-    
-    /*--words without matches--*/
+    let score_current_high = 0;
+    let score_current_match = q_matches[0];
+    non_repetive_matches.forEach(match=>{
+        let { occurrence_score, arrangement_score } = calc_query_score(match.matches[0].Query, submited_query);
+        if(score_current_high <= (occurrence_score+arrangement_score)){
+            score_current_high = (occurrence_score+arrangement_score);
+            score_current_match = match;
+        }
+    });
+    //console.log(score_current_match);
+
+    /*--words without matches--------------------------------------*/
     q_unmatches.forEach(unmatch_arr => {
         //console.log(unmatch_arr);
     });
@@ -154,8 +182,10 @@ const score_dialog = (matches, submited_query) => {
             "I don't get what you're saying"
         ]
         return {
-            score: "40",
-            reply: error_msg[Math.floor(Math.random() * error_msg.length)]
+            reason: "more wrong words than right ones",
+            score: (100*q_unmatches.length)/(q_matches.length+q_unmatches.length),
+            reply: error_msg[Math.floor(Math.random() * error_msg.length)],
+            exact_query: ""
         }
     }
 
@@ -168,14 +198,54 @@ const score_dialog = (matches, submited_query) => {
             "Umm... I don't understand that"
         ]
         return {
-            score: "40",
-            reply: error_msg[Math.floor(Math.random() * error_msg.length)]
+            reason: "no single word matched a query",
+            score: 0,
+            reply: error_msg[Math.floor(Math.random() * error_msg.length)],
+            exact_query: ""
         }
     }
+    
+    return {
+        reason: "highest score from matches",
+        score: score_current_high,
+        reply: score_current_match.matches[0].Reply,
+        exact_query: score_current_match.matches[0].Query
+    }
+}
+
+//function to calculate word occurrence(50%), and word arrangement(50%)
+const calc_query_score = (match_query, submited_query_p) => {
+
+    let occurrence_score = 0;
+    let arrangement_score = 0;
+    let submited_query = submited_query_p.toLowerCase();
+
+    console.log(match_query, " : ", submited_query)
+    
+    //calculating occurrence score
+    let each_percentage = (50/match_query.split(" ").length);
+    let prev_index = 0;
+    let temp_submited_query = submited_query.split(" ");
+    match_query.trim().split(" ").forEach(word => {
+        if(submited_query.split(" ").includes(word)){
+            occurrence_score += each_percentage;
+
+            //calculating arrangement score
+            let current_index = temp_submited_query.findIndex(each=>each===word);
+            if(prev_index <  current_index){
+                arrangement_score += each_percentage;
+            }
+            temp_submited_query[current_index] = " "
+            prev_index = current_index;
+            
+            
+        }
+        console.log("OC", occurrence_score, "AC", arrangement_score)
+    });
 
     return {
-        score: "40",
-        reply: "test"
+        occurrence_score,
+        arrangement_score
     }
 }
 
