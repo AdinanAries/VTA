@@ -4,10 +4,11 @@ const snms = require("../data/synonyms.json");
 //function for replying to query
 //may contain sub-functions
 /*---Interface---*/
-const talk = () => {
+const talk = (query) => {
     //console.log(dialogs);
     //console.log(evaluate("Sup What's? are you doing?"))
-    console.log(evaluate("who are you, I had pizza for friday dinner, Because My sister doesnt want to be a good girl, orange banana apple pineable peach cassava"))
+    console.log(evaluate(query))
+    return evaluate(query);
 }
 
 //function to evaluate request from user
@@ -75,13 +76,18 @@ const evaluate = (submited_query) => {
 }
 
 const score_dialog = (matches, submited_query) => {
-    
+    //console.log(matches[0][0].matches[0].Query);
+    let isArry = Array.isArray(matches[0]);
+    if(!isArry){
+        matches[0] = [matches[0]];
+    }
+    //console.log(isArry);
     if(matches.length > 0){
         if(matches[0].length > 0){
             if(matches[0][0].matches.length > 0){
                 if(matches[0][0].matches[0].Query.trim().replaceAll(" ", "") === submited_query.toLowerCase().trim().replaceAll(" ", "")){
                     //console.log("here");
-                    //console.log("matches ", matches[0][0]);
+                    
                     return {
                         reason: "exact match",
                         score: 100,
@@ -102,7 +108,7 @@ const score_dialog = (matches, submited_query) => {
             //console.log(matches_arr);
             let isArry = Array.isArray(matches_arr);
             if(!isArry) matches_arr = [matches_arr]
-            console.log(isArry)
+            
             if(matches_arr.length > 0){
                 matches_arr.forEach(each => {
                     if(each.matches.length > 0)
@@ -158,6 +164,7 @@ const score_dialog = (matches, submited_query) => {
     //console.log(non_repetive_matches);
 
     let score_current_high = 0;
+    console.log("score: ", non_repetive_matches)
     let score_current_match = q_matches[0];
     non_repetive_matches.forEach(match=>{
         let { occurrence_score, arrangement_score } = calc_query_score(match.matches[0].Query, submited_query);
@@ -181,14 +188,27 @@ const score_dialog = (matches, submited_query) => {
             "Your message isn't clear",
             "I don't get what you're saying"
         ]
+
+        let middle_msg = [
+            "You can also say",
+            "I can understand if you say",
+            "Say the following instead",
+            "Usually peaple say"
+        ]
         
         let accuracy_percentage = (100-(100*q_unmatches.length)/(q_matches.length+q_unmatches.length));
 
-        if(accuracy_percentage > 40){
+        let higher_percentege_middle_msg = [
+            "Umm, I only understood",
+            "Emm.. Hopefully you are saying",
+            "I think you said"
+        ]
+
+        if(accuracy_percentage >= 40){
             return {
                 reason: "more wrong words than right ones",
                 score: accuracy_percentage,
-                reply: q_matches[0].matches[0].Reply,
+                reply: `${higher_percentege_middle_msg[Math.floor(Math.random() * higher_percentege_middle_msg.length)]} "${q_matches[0].matches[0].Query}" so... ${q_matches[0].matches[0].Reply}`,
                 exact_query: q_matches[0].matches[0].Query
             }
         }
@@ -196,7 +216,7 @@ const score_dialog = (matches, submited_query) => {
         return {
             reason: "more wrong words than right ones",
             score: accuracy_percentage,
-            reply: `${error_msg[Math.floor(Math.random() * error_msg.length)]}...Usually peaple say "${q_matches[0].matches[0].Query}"`,
+            reply: `${error_msg[Math.floor(Math.random() * error_msg.length)]}...${middle_msg[Math.floor(Math.random() * middle_msg.length)]} "${q_matches[0].matches[0].Query}"`,
             exact_query: ""
         }
     }
@@ -232,7 +252,7 @@ const calc_query_score = (match_query, submited_query_p) => {
     let arrangement_score = 0;
     let submited_query = submited_query_p.toLowerCase();
 
-    console.log(match_query, " : ", submited_query)
+    //console.log(match_query, " : ", submited_query)
     
     //calculating occurrence score
     let each_percentage = (50/match_query.split(" ").length);
@@ -252,7 +272,7 @@ const calc_query_score = (match_query, submited_query_p) => {
             
             
         }
-        console.log("OC", occurrence_score, "AC", arrangement_score)
+        //console.log("OC", occurrence_score, "AC", arrangement_score)
     });
 
     return {
