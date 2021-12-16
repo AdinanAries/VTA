@@ -30,6 +30,20 @@ const evaluate = (submited_query) => {
         }
     }
 
+    //find If we have the exact words
+    let first_dialog = dialogs.Dialogs.filter(dialog=>{
+        return dialog.Query.includes(submited_query.trim().toLowerCase());
+    });
+
+    if(first_dialog.length > 0){
+        return {
+            reason: "first exact match",
+            score: 0,
+            reply: first_dialog[0].Reply,
+            exact_query: first_dialog[0].Query
+        }
+    }
+
     //1. removing noise words returs {words, key_words}
     const { key_words, words } = cleanup(submited_query);
     //2. finding synonyms of key words
@@ -81,23 +95,34 @@ const evaluate = (submited_query) => {
 }
 
 const score_dialog = (matches, submited_query) => {
-    //console.log(matches[0][0]);
+    //console.log(matches);
     let isArry = Array.isArray(matches[0]);
     if(!isArry){
         matches[0] = [matches[0]];
     }
     //console.log(isArry);
-    if(matches.length > 0){
+    console.log(matches.length)
+    if(matches[0] || matches.length > 0){
         if(matches[0].length > 0){
-            if(matches[0][0].matches.length > 0){
-                if(matches[0][0].matches[0].Query.trim().replaceAll(" ", "") === submited_query.toLowerCase().trim().replaceAll(" ", "")){
-                    //console.log("here");
-                    
-                    return {
-                        reason: "exact match",
-                        score: 100,
-                        reply: matches[0][0].matches[0].Reply,
-                        exact_query: matches[0][0].matches[0].Query
+            if(!matches[0][0]){
+                return {
+                    reason: "no match",
+                    score: 0,
+                    reply: "I can't process that I'm sorry",
+                    exact_query: ""
+                }
+            }
+            if(matches[0][0]){
+                if(matches[0][0].matches.length > 0){
+                    if(matches[0][0].matches[0].Query.trim().replaceAll(" ", "") === submited_query.toLowerCase().trim().replaceAll(" ", "")){
+                        //console.log("here");
+                        
+                        return {
+                            reason: "exact match",
+                            score: 100,
+                            reply: matches[0][0].matches[0].Reply,
+                            exact_query: matches[0][0].matches[0].Query
+                        }
                     }
                 }
             }
@@ -174,6 +199,8 @@ const score_dialog = (matches, submited_query) => {
     non_repetive_matches.forEach(match=>{
         
         let { occurrence_score, arrangement_score } = calc_query_score(match.matches[0].Query, submited_query);
+        console.log("current score", occurrence_score+arrangement_score)
+        console.log(score_current_match.matches[0].Query)
         if(score_current_high <= (occurrence_score+arrangement_score)){
             score_current_high = (occurrence_score+arrangement_score);
             score_current_match = match;

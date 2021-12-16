@@ -12,7 +12,72 @@
                     "", ""
                 ]
             },
-            "Reply": "Hello, How are you today?"
+            "Reply": "Hello"
+        },{
+            "Type": "query",
+            "Query": "sorry",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "second",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "No worries..."
+        },{
+            "Type": "query",
+            "Query": "thanks",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "second",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "My pleasure..."
+        },{
+            "Type": "query",
+            "Query": "no",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "second",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "Cool..."
+        },{
+            "Type": "query",
+            "Query": "your creator",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "He is called Mohammed Adinan. Many call him MOH."
+        },{
+            "Type": "query",
+            "Query": "what is your name",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "second",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "My name is AD, short for Adinan..."
         },{
             "Type": "query",
             "Query": "how are you",
@@ -40,6 +105,58 @@
             },
             "Reply": "Got it... from where to where? You can say something like... New York to Paris ..or.. United States to France"
         },{
+            "Type": "begin_air_booking",
+            "Query": "can i book a flight",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "second",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "Sure... from where to where? You can say something like... New York to Paris ..or.. United States to France"
+        },{
+            "Type": "query",
+            "Query": "do",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "second",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "I can book your flights and also help you with post booking support.. I also have answers to some relevant questions you may have."
+        },{
+            "Type": "inform",
+            "Query": "give me a minute",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "second",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "Ok, cool... Whenever you're ready"
+        },{
+            "Type": "inform",
+            "Query": "give me a second",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "second",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "Sure... let me know"
+        },{
             "Type": "query",
             "Query": "who are you",
             "Keys": [
@@ -52,6 +169,45 @@
                 ]
             },
             "Reply": "I'm AD... I'll be your assitant around here... Let me know if you need any help"
+        },{
+            "Type": "inform",
+            "Query": "one sec please",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "second",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "Take your time, I'm always here..."
+        },{
+            "Type": "inform",
+            "Query": "hold on",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "second",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "Ok, cool..."
+        },{
+            "Type": "inform",
+            "Query": "let me check",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "second",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "Cool... Always here..."
         },{
             "Type": "begin_ticket_cancellation",
             "Query": "i want to cancel my flight",
@@ -78,7 +234,7 @@
         }
     ],
     "Noises":[
-        "is", "are", "to", "i", "am"
+        "is", "are", "to", "i", "am", "what", "where", "can", "you", "how"
     ],
     "Punctuations":[
         "'", ".", "?", "!", ","
