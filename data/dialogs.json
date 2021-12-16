@@ -14,7 +14,7 @@
             },
             "Reply": "Hello, How are you today?"
         },{
-            "Type": "greeting",
+            "Type": "query",
             "Query": "how are you",
             "Keys": [
                 "", ""
@@ -26,6 +26,19 @@
                 ]
             },
             "Reply": "I'm doing fine thanks"
+        },{
+            "Type": "begin_air_booking",
+            "Query": "I want to travel",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "second",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "Got it... from where to where? You can say something like... New York to Paris ..or.. United States to France"
         },{
             "Type": "query",
             "Query": "who are you",
@@ -40,7 +53,7 @@
             },
             "Reply": "I'm AD... I'll be your assitant around here... Let me know if you need any help"
         },{
-            "Type": "action",
+            "Type": "begin_ticket_cancellation",
             "Query": "i want to cancel my flight",
             "Keys": [
                 "cancel", "flight"
@@ -52,7 +65,7 @@
                 ]
             },
             "Reply": [
-                "OK cool, umm, please give me the reference number"
+                "OK cool, please give me your reference number to pull your record.,"
             ],
             "Expects": "string",
             "ErrorRes": [
@@ -65,13 +78,13 @@
         }
     ],
     "Noises":[
-        "is", "are", "to", "i", "my"
+        "is", "are", "to", "i", "am"
     ],
     "Punctuations":[
         "'", ".", "?", "!", ","
     ],
     "Suffixes":[
-        "'s"
+        "'s", "'m", "'ve", "'ll", "'d"
     ]
     
 }

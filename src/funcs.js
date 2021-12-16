@@ -17,12 +17,17 @@ const talk = (query) => {
 const evaluate = (submited_query) => {
 
     if(submited_query === "" || submited_query === undefined){
-        let reply = [
+        let replies = [
             "Umm, did you say something?",
             "I think something is missing here, come again please?",
             "I don't get your message here. Did you type something"
         ];
-        return reply[Math.floor(Math.random() * reply.length)]
+        return {
+            reason: "empty or undefined input",
+            score: 0,
+            reply: replies[Math.floor(Math.random() * replies.length)],
+            exact_query: ""
+        }
     }
 
     //1. removing noise words returs {words, key_words}
@@ -63,7 +68,7 @@ const evaluate = (submited_query) => {
     });
     //3. score matching dialogs and return appropriat response
     let { reply, score, exact_query, reason} = score_dialog(matching_dialogs, submited_query);
-    if(score > 50){
+    if(score >= 50){
         return {exact_query, score, reply, reason};
     }if(score < 50){
         return {reply, score, exact_query, reason};
@@ -76,7 +81,7 @@ const evaluate = (submited_query) => {
 }
 
 const score_dialog = (matches, submited_query) => {
-    //console.log(matches[0][0].matches[0].Query);
+    //console.log(matches[0][0]);
     let isArry = Array.isArray(matches[0]);
     if(!isArry){
         matches[0] = [matches[0]];
@@ -164,9 +169,10 @@ const score_dialog = (matches, submited_query) => {
     //console.log(non_repetive_matches);
 
     let score_current_high = 0;
-    console.log("score: ", non_repetive_matches)
+    //console.log("score: ", non_repetive_matches)
     let score_current_match = q_matches[0];
     non_repetive_matches.forEach(match=>{
+        
         let { occurrence_score, arrangement_score } = calc_query_score(match.matches[0].Query, submited_query);
         if(score_current_high <= (occurrence_score+arrangement_score)){
             score_current_high = (occurrence_score+arrangement_score);
@@ -183,9 +189,10 @@ const score_dialog = (matches, submited_query) => {
     //when message has more wrong words than right ones
     //this is usefull for making query suggessions
     if(q_matches.length < q_unmatches.length){
+        
         let error_msg = [
             "Sorry I don't understand what you are saying",
-            "Your message isn't clear",
+            "Your message isn't clear to me...",
             "I don't get what you're saying"
         ]
 
@@ -204,6 +211,15 @@ const score_dialog = (matches, submited_query) => {
             "I think you said"
         ]
 
+        if(q_matches.length < 1){
+            return {
+                reason: "more wrong words than right ones. but nothing muched",
+                score: 0,
+                reply: `${error_msg[Math.floor(Math.random() * error_msg.length)]}...`,
+                exact_query: ""
+            }
+        }
+
         if(accuracy_percentage >= 40){
             return {
                 reason: "more wrong words than right ones",
@@ -216,7 +232,7 @@ const score_dialog = (matches, submited_query) => {
         return {
             reason: "more wrong words than right ones",
             score: accuracy_percentage,
-            reply: `${error_msg[Math.floor(Math.random() * error_msg.length)]}...${middle_msg[Math.floor(Math.random() * middle_msg.length)]} "${q_matches[0].matches[0].Query}"`,
+            reply: `${error_msg[Math.floor(Math.random() * error_msg.length)]}... ${middle_msg[Math.floor(Math.random() * middle_msg.length)]} "${q_matches[0].matches[0].Query}"`,
             exact_query: ""
         }
     }
@@ -236,7 +252,7 @@ const score_dialog = (matches, submited_query) => {
             exact_query: ""
         }
     }
-    
+    //console.log(score_current_high)
     return {
         reason: "highest score from matches",
         score: score_current_high,
