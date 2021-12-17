@@ -12,7 +12,7 @@
                     "", ""
                 ]
             },
-            "Reply": "Hello"
+            "Reply": "Hello..."
         },{
             "Type": "query",
             "Query": "sorry",
@@ -54,7 +54,59 @@
             "Reply": "Cool..."
         },{
             "Type": "query",
-            "Query": "your creator",
+            "Query": "who is your creator",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "He is called Mohammed Adinan. Many call him MOH."
+        },{
+            "Type": "query",
+            "Query": "who created you",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "Mohammed Adinan did. He's a Software Engineer and Business man."
+        },{
+            "Type": "query",
+            "Query": "I want to travel",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "Yes.. from where to where... Say something like 'New York to Paris' or 'United States to France'"
+        },{
+            "Type": "query",
+            "Query": "Can I check my flight status",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "Sure, what is your ticket reference number?"
+        },{
+            "Type": "query",
+            "Query": "who is your creator",
             "Keys": [
                 "", ""
             ],

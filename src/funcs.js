@@ -32,13 +32,13 @@ const evaluate = (submited_query) => {
 
     //find If we have the exact words
     let first_dialog = dialogs.Dialogs.filter(dialog=>{
-        return dialog.Query.includes(submited_query.trim().toLowerCase());
+        return dialog.Query === submited_query.trim().toLowerCase();
     });
 
     if(first_dialog.length > 0){
         return {
             reason: "first exact match",
-            score: 0,
+            score: 100,
             reply: first_dialog[0].Reply,
             exact_query: first_dialog[0].Query
         }
@@ -279,7 +279,21 @@ const score_dialog = (matches, submited_query) => {
             exact_query: ""
         }
     }
-    //console.log(score_current_high)
+    //console.log(score_current_high)'
+    if(score_current_high < 30){
+        let reply_msg = [
+            "We were pretty close... I could've understood if you had said '",
+            "You message sound like... '",
+            "I didn't get that, but I can answer if you say '"
+        ]
+        return {
+            reason: "highest score from matches",
+            score: score_current_high,
+            reply: `${reply_msg[Math.floor(Math.random() * reply_msg.length)]}${score_current_match.matches[0].Query}'`,
+            exact_query: score_current_match.matches[0].Query
+        }
+    }
+
     return {
         reason: "highest score from matches",
         score: score_current_high,
