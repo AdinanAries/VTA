@@ -79,7 +79,7 @@
             },
             "Reply": "Mohammed Adinan did. He's a Software Engineer and Business man."
         },{
-            "Type": "query",
+            "Type": "begin_air_booking",
             "Query": "I want to travel",
             "Keys": [
                 "", ""
@@ -106,7 +106,7 @@
             "Reply": "Sure, what is your ticket reference number?"
         },{
             "Type": "query",
-            "Query": "who is your creator",
+            "Query": "give me your name",
             "Keys": [
                 "", ""
             ],
@@ -116,7 +116,7 @@
                     "", ""
                 ]
             },
-            "Reply": "He is called Mohammed Adinan. Many call him MOH."
+            "Reply": "My name is Alien Dough... or AD for short."
         },{
             "Type": "query",
             "Query": "what is your name",
@@ -129,7 +129,7 @@
                     "", ""
                 ]
             },
-            "Reply": "My name is AD, short for Adinan..."
+            "Reply": "My name is AD, short for Alien Dough"
         },{
             "Type": "query",
             "Query": "how are you",
@@ -171,7 +171,7 @@
             "Reply": "Sure... from where to where? You can say something like... New York to Paris ..or.. United States to France"
         },{
             "Type": "query",
-            "Query": "do",
+            "Query": "what can you do",
             "Keys": [
                 "", ""
             ],
@@ -286,7 +286,7 @@
         }
     ],
     "Noises":[
-        "is", "are", "to", "i", "am", "what", "where", "can", "you", "how"
+        "is", "are", "to", "i", "am", "what", "where", "can", "you", "how", "give", "me", "your"
     ],
     "Punctuations":[
         "'", ".", "?", "!", ","

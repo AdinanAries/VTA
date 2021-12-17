@@ -32,6 +32,7 @@ app.post("/query_bot/", (req, res, next)=>{
     res_obj.msg = bot_reply.reply;
     //console.log(talk(req_body.q));
     res.send(res_obj);
+    //res.send(undefined)
 });
 
 //https://khmtravel.com/uncategorized/travel-agent-questions-to-ask-clients/#:~:text=Questions%20a%20Travel%20Agent%20Should%20Ask%201%20How,be%20different%20from%20others%20you%20have%20been%20on%3F
