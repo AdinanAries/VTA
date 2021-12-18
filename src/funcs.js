@@ -23,6 +23,7 @@ const evaluate = (submited_query) => {
             "I don't get your message here. Did you type something"
         ];
         return {
+            action_type: "",
             reason: "empty or undefined input",
             score: 0,
             reply: replies[Math.floor(Math.random() * replies.length)],
@@ -37,6 +38,7 @@ const evaluate = (submited_query) => {
 
     if(first_dialog.length > 0){
         return {
+            action_type: first_dialog[0].Type,
             reason: "first exact match",
             score: 100,
             reply: first_dialog[0].Reply,
@@ -81,11 +83,11 @@ const evaluate = (submited_query) => {
         }
     });
     //3. score matching dialogs and return appropriat response
-    let { reply, score, exact_query, reason} = score_dialog(matching_dialogs, submited_query);
+    let {action_type, reply, score, exact_query, reason} = score_dialog(matching_dialogs, submited_query);
     if(score >= 50){
-        return {exact_query, score, reply, reason};
+        return {action_type, exact_query, score, reply, reason};
     }if(score < 50){
-        return {reply, score, exact_query, reason};
+        return {action_type, reply, score, exact_query, reason};
     }
 
     //console.log(key_words);
@@ -106,6 +108,7 @@ const score_dialog = (matches, submited_query) => {
         if(matches[0].length > 0){
             if(!matches[0][0]){
                 return {
+                    action_type: "",
                     reason: "no match",
                     score: 0,
                     reply: "I can't process that I'm sorry",
@@ -118,6 +121,7 @@ const score_dialog = (matches, submited_query) => {
                         //console.log("here");
                         
                         return {
+                            action_type: matches[0][0].matches[0].Type,
                             reason: "exact match",
                             score: 100,
                             reply: matches[0][0].matches[0].Reply,
@@ -194,7 +198,7 @@ const score_dialog = (matches, submited_query) => {
     //console.log(non_repetive_matches);
 
     let score_current_high = 0;
-    //console.log("score: ", non_repetive_matches)
+    console.log("score: ", non_repetive_matches)
     let score_current_match = q_matches[0];
     non_repetive_matches.forEach(match=>{
         
@@ -240,6 +244,7 @@ const score_dialog = (matches, submited_query) => {
 
         if(q_matches.length < 1){
             return {
+                action_type: "",
                 reason: "more wrong words than right ones. but nothing muched",
                 score: 0,
                 reply: `${error_msg[Math.floor(Math.random() * error_msg.length)]}...`,
@@ -249,6 +254,7 @@ const score_dialog = (matches, submited_query) => {
 
         if(accuracy_percentage >= 40){
             return {
+                action_type: q_matches[0].matches[0].Type,
                 reason: "more wrong words than right ones",
                 score: accuracy_percentage,
                 reply: `${higher_percentege_middle_msg[Math.floor(Math.random() * higher_percentege_middle_msg.length)]} "${q_matches[0].matches[0].Query}" so... ${q_matches[0].matches[0].Reply}`,
@@ -257,6 +263,7 @@ const score_dialog = (matches, submited_query) => {
         }
 
         return {
+            action_type: "",
             reason: "more wrong words than right ones",
             score: accuracy_percentage,
             reply: `${error_msg[Math.floor(Math.random() * error_msg.length)]}... ${middle_msg[Math.floor(Math.random() * middle_msg.length)]} "${q_matches[0].matches[0].Query}"`,
@@ -273,6 +280,7 @@ const score_dialog = (matches, submited_query) => {
             "Umm... I don't understand that"
         ]
         return {
+            action_type: "",
             reason: "no single word matched a query",
             score: 0,
             reply: error_msg[Math.floor(Math.random() * error_msg.length)],
@@ -283,10 +291,11 @@ const score_dialog = (matches, submited_query) => {
     if(score_current_high < 30){
         let reply_msg = [
             "We were pretty close... I could've understood if you had said '",
-            "You message sound like... '",
+            "I dont undertand... How about you say '",
             "I didn't get that, but I can answer if you say '"
         ]
         return {
+            action_type: "",
             reason: "highest score from matches",
             score: score_current_high,
             reply: `${reply_msg[Math.floor(Math.random() * reply_msg.length)]}${score_current_match.matches[0].Query}'`,
@@ -295,6 +304,7 @@ const score_dialog = (matches, submited_query) => {
     }
 
     return {
+        action_type: score_current_match.matches[0].Type,
         reason: "highest score from matches",
         score: score_current_high,
         reply: score_current_match.matches[0].Reply,

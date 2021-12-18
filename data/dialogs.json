@@ -1,5 +1,99 @@
 {
     "Dialogs":[
+
+        {
+            "Type": "list_help_options",
+            "Query": "help",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "second",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "Ok cool... Here are some options... 1. if you want to book a flight, say 'book a flight'... 2. if you want to cancel a flight, say 'cancel my flight', ..."
+        },{
+            "Type": "list_help_options",
+            "Query": "get me help",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "second",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "Ok cool... Here are some options... 1. if you want to book a flight, say 'book a flight'... 2. if you want to cancel a flight, say 'cancel my flight', ..."
+        },{
+            "Type": "list_help_options",
+            "Query": "i need help",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "second",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "Ok cool... Here are some options... 1. if you want to book a flight, say 'book a flight'... 2. if you want to cancel a flight, say 'cancel my flight', ..."
+        },{
+            "Type": "list_help_options",
+            "Query": "can someone / somebody help me",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "second",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "Ok cool... Here are some options... 1. if you want to book a flight, say 'book a flight'... 2. if you want to cancel a flight, say 'cancel my flight', ..."
+        },{
+            "Type": "list_help_options",
+            "Query": "give me some options",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "second",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "Ok cool... Here are some options... 1. if you want to book a flight, say 'book a flight'... 2. if you want to cancel a flight, say 'cancel my flight', ..."
+        },{
+            "Type": "list_help_options",
+            "Query": "options",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "second",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "Ok cool... Here are some options... 1. if you want to book a flight, say 'book a flight'... 2. if you want to cancel a flight, say 'cancel my flight', ..."
+        },{
+            "Type": "list_help_options",
+            "Query": "help me",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "second",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "Ok cool... Here are some options... 1. if you want to book a flight, say 'book a flight'... 2. if you want to cancel a flight, say 'cancel my flight', ..."
+        },
+
         {
             "Type": "greeting",
             "Query": "hey",
@@ -273,7 +367,7 @@
                 ]
             },
             "Reply": [
-                "OK cool, please give me your reference number to pull your record.,"
+                "OK cool, please give me your reference number to pull your record..."
             ],
             "Expects": "string",
             "ErrorRes": [
@@ -286,10 +380,10 @@
         }
     ],
     "Noises":[
-        "is", "are", "to", "i", "am", "what", "where", "can", "you", "how", "give", "me", "your"
+        "is", "are", "to", "i", "am", "what", "where", "can", "you", "how", "give", "me", "your", "a"
     ],
     "Punctuations":[
-        "'", ".", "?", "!", ","
+        "'", ".", "?", "!", ",", "/"
     ],
     "Suffixes":[
         "'s", "'m", "'ve", "'ll", "'d"
