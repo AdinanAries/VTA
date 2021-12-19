@@ -355,6 +355,19 @@
             },
             "Reply": "Cool... Always here..."
         },{
+            "Type": "inform",
+            "Query": "",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "second",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "???.. Did you say something"
+        },{
             "Type": "begin_ticket_cancellation",
             "Query": "i want to cancel my flight",
             "Keys": [

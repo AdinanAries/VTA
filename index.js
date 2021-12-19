@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require('cors');
 const app = express();
 
-const { talk } = require("./src/funcs");
+const { talk, query_autocomplete } = require("./src/funcs");
 
 //talk();
 
@@ -33,6 +33,15 @@ app.post("/query_bot/", (req, res, next)=>{
     //console.log(talk(req_body.q));
     res.send(res_obj);
     //res.send(undefined)
+});
+
+app.post("/q_autocomplete/", (req, res, next) => {
+    let q = req.body.q;
+    let obj = query_autocomplete(q);
+    let query = ""
+    if(obj) query = obj.Query;
+    console.log(query)
+    res.send({q: query});
 });
 
 //https://khmtravel.com/uncategorized/travel-agent-questions-to-ask-clients/#:~:text=Questions%20a%20Travel%20Agent%20Should%20Ask%201%20How,be%20different%20from%20others%20you%20have%20been%20on%3F

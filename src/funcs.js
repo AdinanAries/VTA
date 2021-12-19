@@ -439,8 +439,17 @@ const get_matching_dialogs = (word_or_array) => {
     return dialogArr;
 }
 
+const query_autocomplete = (q)=>{
+    let filtered = dialogs.Dialogs.filter(each => {
+        return each.Query.includes(q.toLowerCase().trim());
+    });
+    return filtered.length > 0 ? filtered[0] : undefined ;
+}
+
+//console.log(query_autocomplete("w"))
 
 module.exports = {
     talk,
-    evaluate
+    evaluate,
+    query_autocomplete
 }
