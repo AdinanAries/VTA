@@ -2,7 +2,7 @@
     "Dialogs":[
 
         {
-            "Type": "list_help_options",
+            "Type": "help_options",
             "Query": "help",
             "Keys": [
                 "", ""
@@ -15,7 +15,7 @@
             },
             "Reply": "Ok cool... Here are some options... 1. if you want to book a flight, say 'book a flight'... 2. if you want to cancel a flight, say 'cancel my flight', ..."
         },{
-            "Type": "list_help_options",
+            "Type": "help_options",
             "Query": "get me help",
             "Keys": [
                 "", ""
@@ -28,7 +28,7 @@
             },
             "Reply": "Ok cool... Here are some options... 1. if you want to book a flight, say 'book a flight'... 2. if you want to cancel a flight, say 'cancel my flight', ..."
         },{
-            "Type": "list_help_options",
+            "Type": "help_options",
             "Query": "i need help",
             "Keys": [
                 "", ""
@@ -41,7 +41,7 @@
             },
             "Reply": "Ok cool... Here are some options... 1. if you want to book a flight, say 'book a flight'... 2. if you want to cancel a flight, say 'cancel my flight', ..."
         },{
-            "Type": "list_help_options",
+            "Type": "help_options",
             "Query": "can someone / somebody help me",
             "Keys": [
                 "", ""
@@ -54,7 +54,7 @@
             },
             "Reply": "Ok cool... Here are some options... 1. if you want to book a flight, say 'book a flight'... 2. if you want to cancel a flight, say 'cancel my flight', ..."
         },{
-            "Type": "list_help_options",
+            "Type": "help_options",
             "Query": "give me some options",
             "Keys": [
                 "", ""
@@ -80,7 +80,7 @@
             },
             "Reply": "Ok cool... Here are some options... 1. if you want to book a flight, say 'book a flight'... 2. if you want to cancel a flight, say 'cancel my flight', ..."
         },{
-            "Type": "list_help_options",
+            "Type": "help_options",
             "Query": "help me",
             "Keys": [
                 "", ""
@@ -108,7 +108,7 @@
             },
             "Reply": "Hello..."
         },{
-            "Type": "query",
+            "Type": "confirm",
             "Query": "sorry",
             "Keys": [
                 "", ""
@@ -121,7 +121,7 @@
             },
             "Reply": "No worries..."
         },{
-            "Type": "query",
+            "Type": "confirm",
             "Query": "thanks",
             "Keys": [
                 "", ""
@@ -134,7 +134,7 @@
             },
             "Reply": "My pleasure..."
         },{
-            "Type": "query",
+            "Type": "confirm",
             "Query": "no",
             "Keys": [
                 "", ""

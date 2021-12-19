@@ -1,20 +1,25 @@
-const dialogs = require("../data/dialogs.json");
+const g_dialogs = require("../data/dialogs.json");
 const snms = require("../data/synonyms.json");
+
+//initial dialogs. makes possible to reset dialog
+var dialogs = {};
 
 //function for replying to query
 //may contain sub-functions
 /*---Interface---*/
-const talk = (query) => {
+const talk = (query, bot_status) => {
     //console.log(dialogs);
     //console.log(evaluate("Sup What's? are you doing?"))
-    console.log(evaluate(query))
-    return evaluate(query);
+    console.log(evaluate(query, bot_status))
+    return evaluate(query, bot_status);
 }
 
 //function to evaluate request from user
 //may contain sub-functions
 /*---Interface---*/
-const evaluate = (submited_query) => {
+const evaluate = (submited_query, bot_status) => {
+
+    dialogs = {...g_dialogs};
 
     if(submited_query === "" || submited_query === undefined){
         let replies = [
@@ -29,6 +34,12 @@ const evaluate = (submited_query) => {
             reply: replies[Math.floor(Math.random() * replies.length)],
             exact_query: ""
         }
+    }
+
+    if(bot_status === "begin_air_booking"){
+        dialogs.Dialogs = dialogs.Dialogs.filter(each=>{
+            return (each.Type.toLowerCase().trim() === bot_status.toLowerCase().trim())
+        });
     }
 
     //find If we have the exact words
@@ -439,7 +450,18 @@ const get_matching_dialogs = (word_or_array) => {
     return dialogArr;
 }
 
-const query_autocomplete = (q)=>{
+const query_autocomplete = (q, bot_status)=>{
+
+    dialogs = {...g_dialogs};
+    //console.log(dialogs);
+
+    if(bot_status === "begin_air_booking"){
+        dialogs.Dialogs = g_dialogs.Dialogs.filter(each=>{
+            return (each.Type.toLowerCase().trim() === bot_status.toLowerCase().trim())
+        });
+    }
+    //console.log(g_dialogs.Dialogs)
+
     let filtered = dialogs.Dialogs.filter(each => {
         return each.Query.includes(q.toLowerCase().trim());
     });

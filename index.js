@@ -22,14 +22,16 @@ app.get("/", (req, res, next)=>{
 })
 
 app.post("/query_bot/", (req, res, next)=>{
-    console.log(req.body);
+    //console.log(req.body);
     let req_body = req.body;
     let res_obj = {
+        type: "",
         msg: ""
     }
-    let bot_reply = talk(req_body.q);
+    let bot_reply = talk(req_body.q, req_body.bot_status);
     console.log(bot_reply)
     res_obj.msg = bot_reply.reply;
+    res_obj.type = bot_reply.action_type;
     //console.log(talk(req_body.q));
     res.send(res_obj);
     //res.send(undefined)
@@ -37,7 +39,8 @@ app.post("/query_bot/", (req, res, next)=>{
 
 app.post("/q_autocomplete/", (req, res, next) => {
     let q = req.body.q;
-    let obj = query_autocomplete(q);
+    let bot_status = req.body.bot_status
+    let obj = query_autocomplete(q, bot_status);
     let query = ""
     if(obj) query = obj.Query;
     console.log(query)
