@@ -42,7 +42,7 @@
             "Reply": "Ok cool... Here are some options... 1. if you want to book a flight, say 'book a flight'... 2. if you want to cancel a flight, say 'cancel my flight', ..."
         },{
             "Type": "help_options",
-            "Query": "can someone / somebody help me",
+            "Query": "can somebody help me",
             "Keys": [
                 "", ""
             ],
@@ -55,7 +55,20 @@
             "Reply": "Ok cool... Here are some options... 1. if you want to book a flight, say 'book a flight'... 2. if you want to cancel a flight, say 'cancel my flight', ..."
         },{
             "Type": "help_options",
-            "Query": "give me some options",
+            "Query": "can someone help me",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "second",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "Ok cool... Here are some options... 1. if you want to book a flight, say 'book a flight'... 2. if you want to cancel a flight, say 'cancel my flight', ..."
+        },{
+            "Type": "help_options",
+            "Query": "give me options",
             "Keys": [
                 "", ""
             ],
@@ -95,6 +108,58 @@
         },
 
         {
+            "Type": "begin_air_booking",
+            "Query": "i want to book a flight",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "Ok.. from where to where... Say something like 'New York to Paris' or 'United States to France'"
+        },{
+            "Type": "begin_air_booking",
+            "Query": "i want to travel",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "Ok.. from where to where... Say something like 'New York to Paris' or 'United States to France'"
+        },{
+            "Type": "begin_air_booking",
+            "Query": "i want to buy a ticket",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "Sure.. from where to where... Say something like 'New York to Paris' or 'United States to France'"
+        },{
+            "Type": "begin_air_booking",
+            "Query": "i want to buy a flight ticket",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "kk.. from where to where... Say something like 'New York to Paris' or 'United States to France'"
+        },{
             "Type": "greeting",
             "Query": "hey",
             "Keys": [
@@ -173,21 +238,8 @@
             },
             "Reply": "Mohammed Adinan did. He's a Software Engineer and Business man."
         },{
-            "Type": "begin_air_booking",
-            "Query": "I want to travel",
-            "Keys": [
-                "", ""
-            ],
-            "Person":{
-                "Type": "",
-                "Keys": [
-                    "", ""
-                ]
-            },
-            "Reply": "Yes.. from where to where... Say something like 'New York to Paris' or 'United States to France'"
-        },{
             "Type": "query",
-            "Query": "Can I check my flight status",
+            "Query": "can i check my flight status",
             "Keys": [
                 "", ""
             ],
@@ -239,7 +291,7 @@
             "Reply": "I'm doing fine thanks"
         },{
             "Type": "begin_air_booking",
-            "Query": "I want to travel",
+            "Query": "i want to travel",
             "Keys": [
                 "", ""
             ],
