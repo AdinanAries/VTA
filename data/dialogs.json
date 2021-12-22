@@ -109,6 +109,136 @@
 
         {
             "Type": "begin_air_booking",
+            "Query": "cheapest",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "Ok.. cool...'"
+        },{
+            "Type": "begin_air_booking",
+            "Query": "business",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "Ok.. cool...'"
+        },{
+            "Type": "begin_air_booking",
+            "Query": "first class",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "Ok.. cool...'"
+        },{
+            "Type": "begin_air_booking",
+            "Query": "premium",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "Ok.. cool...'"
+        },{
+            "Type": "begin_air_booking",
+            "Query": "economy",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "Ok.. cool...'"
+        },{
+            "Type": "begin_air_booking",
+            "Query": "one way",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "Ok.. cool...'"
+        },{
+            "Type": "begin_air_booking",
+            "Query": "round trip",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "Ok.. cool...'"
+        },{
+            "Type": "begin_air_booking",
+            "Query": "stop",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "Ok.. cool...'"
+        },{
+            "Type": "begin_air_booking",
+            "Query": "yes",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "Ok.. cool...'"
+        },{
+            "Type": "begin_air_booking",
+            "Query": "done",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": "Ok.. cool...'"
+        },{
+            "Type": "begin_air_booking",
             "Query": "i want to book a flight",
             "Keys": [
                 "", ""
