@@ -13,7 +13,10 @@
                     "", ""
                 ]
             },
-            "Reply": "Ok cool... Here are some options... 1. if you want to book a flight, say 'book a flight'... 2. if you want to cancel a flight, say 'cancel my flight', ..."
+            "Reply": [
+                "oops! let me see how",
+                "Ok cool 🙂... Here are some options... <br/>1. if you want to book a flight, say <span class='support_chat_bot_msg_highlights'>'book a flight'</span>... <br/>2. if you want to cancel a flight, say <span class='support_chat_bot_msg_highlights'>'cancel my flight'</span>, ..."
+            ]
         },{
             "Type": "help_options",
             "Query": "get me help",
@@ -26,10 +29,13 @@
                     "", ""
                 ]
             },
-            "Reply": "Ok cool... Here are some options... 1. if you want to book a flight, say 'book a flight'... 2. if you want to cancel a flight, say 'cancel my flight', ..."
+            "Reply": [
+                "I'm sorry about that",
+                "Ok cool... Here are some options... 1. if you want to book a flight, say 'book a flight'... 2. if you want to cancel a flight, say 'cancel my flight', ..."
+            ]
         },{
             "Type": "help_options",
-            "Query": "i need help",
+            "Query": "I need help",
             "Keys": [
                 "", ""
             ],
@@ -39,7 +45,9 @@
                     "", ""
                 ]
             },
-            "Reply": "Ok cool... Here are some options... 1. if you want to book a flight, say 'book a flight'... 2. if you want to cancel a flight, say 'cancel my flight', ..."
+            "Reply": [
+                "Ok cool... Here are some options... 1. if you want to book a flight, say 'book a flight'... 2. if you want to cancel a flight, say 'cancel my flight', ..."
+            ]
         },{
             "Type": "help_options",
             "Query": "can somebody help me",
@@ -52,7 +60,9 @@
                     "", ""
                 ]
             },
-            "Reply": "Ok cool... Here are some options... 1. if you want to book a flight, say 'book a flight'... 2. if you want to cancel a flight, say 'cancel my flight', ..."
+            "Reply": [
+                "Ok cool... Here are some options... 1. if you want to book a flight, say 'book a flight'... 2. if you want to cancel a flight, say 'cancel my flight', ..."
+            ]
         },{
             "Type": "help_options",
             "Query": "can someone help me",
@@ -65,7 +75,9 @@
                     "", ""
                 ]
             },
-            "Reply": "Ok cool... Here are some options... 1. if you want to book a flight, say 'book a flight'... 2. if you want to cancel a flight, say 'cancel my flight', ..."
+            "Reply": [
+                "Ok cool... Here are some options... 1. if you want to book a flight, say 'book a flight'... 2. if you want to cancel a flight, say 'cancel my flight', ..."
+            ]
         },{
             "Type": "help_options",
             "Query": "give me options",
@@ -78,7 +90,9 @@
                     "", ""
                 ]
             },
-            "Reply": "Ok cool... Here are some options... 1. if you want to book a flight, say 'book a flight'... 2. if you want to cancel a flight, say 'cancel my flight', ..."
+            "Reply": [
+                "Ok cool... Here are some options... 1. if you want to book a flight, say 'book a flight'... 2. if you want to cancel a flight, say 'cancel my flight', ..."
+            ]
         },{
             "Type": "list_help_options",
             "Query": "options",
@@ -91,7 +105,9 @@
                     "", ""
                 ]
             },
-            "Reply": "Ok cool... Here are some options... 1. if you want to book a flight, say 'book a flight'... 2. if you want to cancel a flight, say 'cancel my flight', ..."
+            "Reply": [
+                "Ok cool... Here are some options... 1. if you want to book a flight, say 'book a flight'... 2. if you want to cancel a flight, say 'cancel my flight', ..."
+            ]
         },{
             "Type": "help_options",
             "Query": "help me",
@@ -104,7 +120,9 @@
                     "", ""
                 ]
             },
-            "Reply": "Ok cool... Here are some options... 1. if you want to book a flight, say 'book a flight'... 2. if you want to cancel a flight, say 'cancel my flight', ..."
+            "Reply": [
+                "Ok cool... Here are some options... 1. if you want to book a flight, say 'book a flight'... 2. if you want to cancel a flight, say 'cancel my flight', ..."
+            ]
         },
 
         {
@@ -119,7 +137,9 @@
                     "", ""
                 ]
             },
-            "Reply": "Ok.. cool...'"
+            "Reply": [
+                "Ok.. cool...'"
+            ]
         },{
             "Type": "begin_air_booking",
             "Query": "business",
@@ -132,7 +152,9 @@
                     "", ""
                 ]
             },
-            "Reply": "Ok.. cool...'"
+            "Reply": [
+                "Ok.. cool...'"
+            ]
         },{
             "Type": "begin_air_booking",
             "Query": "first class",
@@ -145,7 +167,9 @@
                     "", ""
                 ]
             },
-            "Reply": "Ok.. cool...'"
+            "Reply": [
+                "Ok.. cool...'"
+            ]
         },{
             "Type": "begin_air_booking",
             "Query": "premium",
@@ -158,7 +182,9 @@
                     "", ""
                 ]
             },
-            "Reply": "Ok.. cool...'"
+            "Reply": [
+                "Ok.. cool...'"
+            ]
         },{
             "Type": "begin_air_booking",
             "Query": "economy",
@@ -171,7 +197,9 @@
                     "", ""
                 ]
             },
-            "Reply": "Ok.. cool...'"
+            "Reply": [
+                "Ok.. cool...'"
+            ]
         },{
             "Type": "begin_air_booking",
             "Query": "one way",
@@ -184,7 +212,9 @@
                     "", ""
                 ]
             },
-            "Reply": "Ok.. cool...'"
+            "Reply": [
+                "Ok.. cool...'"
+            ]
         },{
             "Type": "begin_air_booking",
             "Query": "round trip",
@@ -197,7 +227,9 @@
                     "", ""
                 ]
             },
-            "Reply": "Ok.. cool...'"
+            "Reply": [
+                "Ok.. cool...'"
+            ]
         },{
             "Type": "begin_air_booking",
             "Query": "stop",
@@ -210,7 +242,10 @@
                     "", ""
                 ]
             },
-            "Reply": "Ok.. cool...'"
+            "Reply": [
+                "Ok.. cool...'",
+                "Go it. Let me know"
+            ]
         },{
             "Type": "begin_air_booking",
             "Query": "yes",
@@ -223,7 +258,9 @@
                     "", ""
                 ]
             },
-            "Reply": "Ok.. cool...'"
+            "Reply": [
+                "Ok.. cool...'"
+            ]
         },{
             "Type": "begin_air_booking",
             "Query": "done",
@@ -236,7 +273,9 @@
                     "", ""
                 ]
             },
-            "Reply": "Ok.. cool...'"
+            "Reply": [
+                "Ok.. cool...'"
+            ]
         },{
             "Type": "begin_air_booking",
             "Query": "i want to book a flight",
@@ -249,7 +288,10 @@
                     "", ""
                 ]
             },
-            "Reply": "Ok.. from where to where... Say something like 'New York to Paris' or 'United States to France'"
+            "Reply": [
+                "🙂 Got it... from where to where? <br/>You can say something like... <span class='support_chat_bot_msg_highlights'>New York to Paris</span> ...or something like <span class='support_chat_bot_msg_highlights'>United States to France</span>",
+                "KK cool 🙂... where are you traveling from and where are you traveling to? <br/>You can say something like... <span class='support_chat_bot_msg_highlights'>New York to Paris</span> ...or something like <span class='support_chat_bot_msg_highlights'>United States to France</span>"
+            ]
         },{
             "Type": "begin_air_booking",
             "Query": "i want to travel",
@@ -262,7 +304,10 @@
                     "", ""
                 ]
             },
-            "Reply": "Ok.. from where to where... Say something like 'New York to Paris' or 'United States to France'"
+            "Reply": [
+                "🙂 Got it... from where to where? <br/>You can say something like... <span class='support_chat_bot_msg_highlights'>New York to Paris</span> ...or something like <span class='support_chat_bot_msg_highlights'>United States to France</span>",
+                "KK cool 🙂... where are you traveling from and where are you traveling to? <br/>You can say something like... <span class='support_chat_bot_msg_highlights'>New York to Paris</span> ...or something like <span class='support_chat_bot_msg_highlights'>United States to France</span>"
+            ]
         },{
             "Type": "begin_air_booking",
             "Query": "i want to buy a ticket",
@@ -275,7 +320,10 @@
                     "", ""
                 ]
             },
-            "Reply": "Sure.. from where to where... Say something like 'New York to Paris' or 'United States to France'"
+            "Reply": [
+                "🙂 Got it... from where to where? <br/>You can say something like... <span class='support_chat_bot_msg_highlights'>New York to Paris</span> ...or something like <span class='support_chat_bot_msg_highlights'>United States to France</span>",
+                "KK cool 🙂... where are you traveling from and where are you traveling to? <br/>You can say something like... <span class='support_chat_bot_msg_highlights'>New York to Paris</span> ...or something like <span class='support_chat_bot_msg_highlights'>United States to France</span>"
+            ]
         },{
             "Type": "begin_air_booking",
             "Query": "i want to buy a flight ticket",
@@ -288,7 +336,10 @@
                     "", ""
                 ]
             },
-            "Reply": "kk.. from where to where... Say something like 'New York to Paris' or 'United States to France'"
+            "Reply": [
+                "🙂 Got it... from where to where? <br/>You can say something like... <span class='support_chat_bot_msg_highlights'>New York to Paris</span> ...or something like <span class='support_chat_bot_msg_highlights'>United States to France</span>",
+                "KK cool 🙂... where are you traveling from and where are you traveling to? <br/>You can say something like... <span class='support_chat_bot_msg_highlights'>New York to Paris</span> ...or something like <span class='support_chat_bot_msg_highlights'>United States to France</span>"
+            ]
         },{
             "Type": "greeting",
             "Query": "hey",
@@ -301,7 +352,45 @@
                     "", ""
                 ]
             },
-            "Reply": "Hello..."
+            "Reply": [
+                "Hello ✌️...",
+                "What's up 😃...",
+                "Hola 👋"
+            ]
+        },{
+            "Type": "greeting",
+            "Query": "hi",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "second",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": [
+                "Hello ✌️...",
+                "What's up 😃...",
+                "Hola 👋"
+            ]
+        },{
+            "Type": "greeting",
+            "Query": "hola",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "second",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": [
+                "Hello ✌️...",
+                "What's up 😃...",
+                "Hola 👋"
+            ]
         },{
             "Type": "confirm",
             "Query": "sorry",
@@ -314,7 +403,9 @@
                     "", ""
                 ]
             },
-            "Reply": "No worries..."
+            "Reply": [
+                "No worries..."
+            ]
         },{
             "Type": "confirm",
             "Query": "thanks",
@@ -327,7 +418,9 @@
                     "", ""
                 ]
             },
-            "Reply": "My pleasure..."
+            "Reply": [
+                "My pleasure..."
+            ]
         },{
             "Type": "confirm",
             "Query": "no",
@@ -340,7 +433,9 @@
                     "", ""
                 ]
             },
-            "Reply": "Cool..."
+            "Reply": [
+                "Cool..."
+            ]
         },{
             "Type": "query",
             "Query": "who is your creator",
@@ -353,7 +448,10 @@
                     "", ""
                 ]
             },
-            "Reply": "He is called Mohammed Adinan. Many call him MOH."
+            "Reply": [
+                "He is called Mohammed Adinan. Many call him MOH.",
+                "Mohammed Adinan did. He's a Software Engineer and Business man."
+            ]
         },{
             "Type": "query",
             "Query": "who created you",
@@ -366,7 +464,10 @@
                     "", ""
                 ]
             },
-            "Reply": "Mohammed Adinan did. He's a Software Engineer and Business man."
+            "Reply": [
+                "He is called Mohammed Adinan. Many call him MOH.",
+                "Mohammed Adinan did. He's a Software Engineer and Business man."
+            ]
         },{
             "Type": "query",
             "Query": "can i check my flight status",
@@ -379,7 +480,9 @@
                     "", ""
                 ]
             },
-            "Reply": "Sure, what is your ticket reference number?"
+            "Reply": [
+                "Sure, what is your ticket reference number?"
+            ]
         },{
             "Type": "query",
             "Query": "give me your name",
@@ -392,7 +495,10 @@
                     "", ""
                 ]
             },
-            "Reply": "My name is Alien Dough... or AD for short."
+            "Reply": [
+                "My name is Alien Dough... or AD for short.",
+                "Alient Dough or AD if you will..."
+            ]
         },{
             "Type": "query",
             "Query": "what is your name",
@@ -405,7 +511,10 @@
                     "", ""
                 ]
             },
-            "Reply": "My name is AD, short for Alien Dough"
+            "Reply": [
+                "My name is AD, short for Alien Dough",
+                "Alien Dough aka AD"
+            ]
         },{
             "Type": "query",
             "Query": "how are you",
@@ -418,7 +527,10 @@
                     "", ""
                 ]
             },
-            "Reply": "I'm doing fine thanks"
+            "Reply": [
+                "I'm doing fine thanks",
+                "I'm well.. and I hope you are too..."
+            ]
         },{
             "Type": "begin_air_booking",
             "Query": "i want to travel",
@@ -431,7 +543,10 @@
                     "", ""
                 ]
             },
-            "Reply": "Got it... from where to where? You can say something like... New York to Paris ..or.. United States to France"
+            "Reply": [
+                "🙂 Got it... from where to where? <br/>You can say something like... <span class='support_chat_bot_msg_highlights'>New York to Paris</span> ...or something like <span class='support_chat_bot_msg_highlights'>United States to France</span>",
+                "KK cool 🙂... where are you traveling from and where are you traveling to? <br/>You can say something like... <span class='support_chat_bot_msg_highlights'>New York to Paris</span> ...or something like <span class='support_chat_bot_msg_highlights'>United States to France</span>"
+            ]
         },{
             "Type": "begin_air_booking",
             "Query": "can i book a flight",
@@ -444,7 +559,10 @@
                     "", ""
                 ]
             },
-            "Reply": "Sure... from where to where? You can say something like... New York to Paris ..or.. United States to France"
+            "Reply": [
+                "🙂 Got it... from where to where? <br/>You can say something like... <span class='support_chat_bot_msg_highlights'>New York to Paris</span> ...or something like <span class='support_chat_bot_msg_highlights'>United States to France</span>",
+                "KK cool 🙂... where are you traveling from and where are you traveling to? <br/>You can say something like... <span class='support_chat_bot_msg_highlights'>New York to Paris</span> ...or something like <span class='support_chat_bot_msg_highlights'>United States to France</span>"
+            ]
         },{
             "Type": "query",
             "Query": "what can you do",
@@ -457,7 +575,9 @@
                     "", ""
                 ]
             },
-            "Reply": "I can book your flights and also help you with post booking support.. I also have answers to some relevant questions you may have."
+            "Reply": [
+                "I can book your flights and also help you with post booking support.. I also have answers to some relevant questions you may have."
+            ]
         },{
             "Type": "inform",
             "Query": "give me a minute",
@@ -470,7 +590,9 @@
                     "", ""
                 ]
             },
-            "Reply": "Ok, cool... Whenever you're ready"
+            "Reply": [
+                "Ok, cool... Whenever you're ready"
+            ]
         },{
             "Type": "inform",
             "Query": "give me a second",
@@ -483,7 +605,9 @@
                     "", ""
                 ]
             },
-            "Reply": "Sure... let me know"
+            "Reply": [
+                "Sure... let me know"
+            ]
         },{
             "Type": "query",
             "Query": "who are you",
@@ -496,7 +620,9 @@
                     "", ""
                 ]
             },
-            "Reply": "I'm AD... I'll be your assitant around here... Let me know if you need any help"
+            "Reply": [
+                "I'm AD... I'll be your assitant around here... Let me know if you need any help"
+            ]
         },{
             "Type": "inform",
             "Query": "one sec please",
@@ -509,7 +635,9 @@
                     "", ""
                 ]
             },
-            "Reply": "Take your time, I'm always here..."
+            "Reply": [
+                "Take your time, I'm always here..."
+            ]
         },{
             "Type": "inform",
             "Query": "hold on",
@@ -522,7 +650,9 @@
                     "", ""
                 ]
             },
-            "Reply": "Ok, cool..."
+            "Reply": [
+                "Ok, cool..."
+            ]
         },{
             "Type": "inform",
             "Query": "let me check",
@@ -535,7 +665,9 @@
                     "", ""
                 ]
             },
-            "Reply": "Cool... Always here..."
+            "Reply": [
+                "Cool... Always here..."
+            ]
         },{
             "Type": "inform",
             "Query": "",
@@ -548,7 +680,9 @@
                     "", ""
                 ]
             },
-            "Reply": "???.. Did you say something"
+            "Reply": [
+                "???.. Did you say something"
+            ]
         },{
             "Type": "begin_ticket_cancellation",
             "Query": "i want to cancel my flight",

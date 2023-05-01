@@ -30,7 +30,7 @@ app.post("/query_bot/", (req, res, next)=>{
     }
     let bot_reply = talk(req_body.q, req_body.bot_status);
     console.log(bot_reply)
-    res_obj.msg = bot_reply.reply;
+    res_obj.msg = bot_reply.reply[Math.floor(Math.random() * bot_reply.reply.length)];
     res_obj.type = bot_reply.action_type;
     //console.log(talk(req_body.q));
     res.send(res_obj);
