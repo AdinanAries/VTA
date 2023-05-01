@@ -122,7 +122,9 @@ const score_dialog = (matches, submited_query) => {
                     action_type: "",
                     reason: "no match",
                     score: 0,
-                    reply: "I can't process that I'm sorry",
+                    reply: [
+                        "I can't process that I'm sorry"
+                    ],
                     exact_query: ""
                 }
             }
@@ -258,7 +260,7 @@ const score_dialog = (matches, submited_query) => {
                 action_type: "",
                 reason: "more wrong words than right ones. but nothing muched",
                 score: 0,
-                reply: `${error_msg[Math.floor(Math.random() * error_msg.length)]}...`,
+                reply: error_msg,//`${error_msg[Math.floor(Math.random() * error_msg.length)]}...`,
                 exact_query: ""
             }
         }
@@ -268,7 +270,7 @@ const score_dialog = (matches, submited_query) => {
                 action_type: q_matches[0].matches[0].Type,
                 reason: "more wrong words than right ones",
                 score: accuracy_percentage,
-                reply: `${higher_percentege_middle_msg[Math.floor(Math.random() * higher_percentege_middle_msg.length)]} "${q_matches[0].matches[0].Query}" so... ${q_matches[0].matches[0].Reply}`,
+                reply: [`${higher_percentege_middle_msg[Math.floor(Math.random() * higher_percentege_middle_msg.length)]} "${q_matches[0].matches[0].Query}" so... ${q_matches[0].matches[0].Reply}`],
                 exact_query: q_matches[0].matches[0].Query
             }
         }
@@ -277,7 +279,7 @@ const score_dialog = (matches, submited_query) => {
             action_type: "",
             reason: "more wrong words than right ones",
             score: accuracy_percentage,
-            reply: `${error_msg[Math.floor(Math.random() * error_msg.length)]}... ${middle_msg[Math.floor(Math.random() * middle_msg.length)]} "${q_matches[0].matches[0].Query}"`,
+            reply: [`${error_msg[Math.floor(Math.random() * error_msg.length)]}... ${middle_msg[Math.floor(Math.random() * middle_msg.length)]} "${q_matches[0].matches[0].Query}"`],
             exact_query: ""
         }
     }
@@ -294,7 +296,7 @@ const score_dialog = (matches, submited_query) => {
             action_type: "",
             reason: "no single word matched a query",
             score: 0,
-            reply: error_msg[Math.floor(Math.random() * error_msg.length)],
+            reply: error_msg,//error_msg[Math.floor(Math.random() * error_msg.length)],
             exact_query: ""
         }
     }
@@ -309,7 +311,7 @@ const score_dialog = (matches, submited_query) => {
             action_type: "",
             reason: "highest score from matches",
             score: score_current_high,
-            reply: `${reply_msg[Math.floor(Math.random() * reply_msg.length)]}${score_current_match.matches[0].Query}'`,
+            reply: reply_msg,//`${reply_msg[Math.floor(Math.random() * reply_msg.length)]}${score_current_match.matches[0].Query}'`,
             exact_query: score_current_match.matches[0].Query
         }
     }
