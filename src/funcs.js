@@ -303,15 +303,15 @@ const score_dialog = (matches, submited_query) => {
     //console.log(score_current_high)'
     if(score_current_high < 30){
         let reply_msg = [
-            "We were pretty close... I could've understood if you had said '",
-            "I dont undertand... How about you say '",
-            "I didn't get that, but I can answer if you say '"
+            "🤔 We're pretty close... I could understand if you said '",
+            "My apologies 🙏, I couldn't process that... <br/>🤔... How about you say '",
+            "Sorry... 🤔... what was that! I can answer to something like... '"
         ]
         return {
             action_type: "",
             reason: "highest score from matches",
             score: score_current_high,
-            reply: reply_msg,//`${reply_msg[Math.floor(Math.random() * reply_msg.length)]}${score_current_match.matches[0].Query}'`,
+            reply: [`${reply_msg[Math.floor(Math.random() * reply_msg.length)]}<span class='support_chat_bot_msg_highlights'>${score_current_match.matches[0].Query}</span>'`],
             exact_query: score_current_match.matches[0].Query
         }
     }
