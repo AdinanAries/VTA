@@ -31,7 +31,7 @@ const evaluate = (submited_query, bot_status) => {
             action_type: "",
             reason: "empty or undefined input",
             score: 0,
-            reply: replies[Math.floor(Math.random() * replies.length)],
+            reply: replies,//[Math.floor(Math.random() * replies.length)],
             exact_query: ""
         }
     }
