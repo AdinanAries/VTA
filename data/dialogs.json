@@ -231,7 +231,7 @@
                 "Ok.. cool...'"
             ]
         },{
-            "Type": "begin_air_booking",
+            "Type": "",
             "Query": "stop",
             "Keys": [
                 "", ""
