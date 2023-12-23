@@ -123,10 +123,8 @@
             "Reply": [
                 "Ok cool... Here are some options... 1. if you want to book a flight, say 'book a flight'... 2. if you want to cancel a flight, say 'cancel my flight', ..."
             ]
-        },
-
-        {
-            "Type": "begin_air_booking",
+        },{
+            "Type": "",
             "Query": "cheapest",
             "Keys": [
                 "", ""
@@ -141,7 +139,7 @@
                 "Ok.. cool...'"
             ]
         },{
-            "Type": "begin_air_booking",
+            "Type": "",
             "Query": "business",
             "Keys": [
                 "", ""
@@ -156,7 +154,7 @@
                 "Ok.. cool...'"
             ]
         },{
-            "Type": "begin_air_booking",
+            "Type": "",
             "Query": "first class",
             "Keys": [
                 "", ""
@@ -171,7 +169,7 @@
                 "Ok.. cool...'"
             ]
         },{
-            "Type": "begin_air_booking",
+            "Type": "",
             "Query": "premium",
             "Keys": [
                 "", ""
@@ -186,7 +184,7 @@
                 "Ok.. cool...'"
             ]
         },{
-            "Type": "begin_air_booking",
+            "Type": "",
             "Query": "economy",
             "Keys": [
                 "", ""
@@ -201,7 +199,7 @@
                 "Ok.. cool...'"
             ]
         },{
-            "Type": "begin_air_booking",
+            "Type": "",
             "Query": "one way",
             "Keys": [
                 "", ""
@@ -216,7 +214,7 @@
                 "Ok.. cool...'"
             ]
         },{
-            "Type": "begin_air_booking",
+            "Type": "",
             "Query": "round trip",
             "Keys": [
                 "", ""
@@ -252,7 +250,7 @@
                 "Oops! 😟... still looking good though... Let me know, anytime.."
             ]
         },{
-            "Type": "begin_air_booking",
+            "Type": "",
             "Query": "yes",
             "Keys": [
                 "", ""
@@ -267,7 +265,7 @@
                 "Ok.. cool...'"
             ]
         },{
-            "Type": "begin_air_booking",
+            "Type": "",
             "Query": "done",
             "Keys": [
                 "", ""
