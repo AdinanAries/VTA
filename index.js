@@ -18,33 +18,65 @@ app.use(cors({
 }));
 
 app.get("/", (req, res, next)=>{
-    res.send("hello")
+    try{
+        res.status(201).send({
+            message: "Hey! I'm your vitual travel assistance bot server! Cheers!",
+            version: "1.0.0",
+            name: "Bot AD",
+            purpose: "Assists with travel activities",
+            capabilities: [],
+        });
+    }catch(e){
+        console.log(e);
+        res.status(500).send({message: "Server Error!"})
+    }
 })
 
 app.post("/query_bot/", (req, res, next)=>{
-    //console.log(req.body);
-    let req_body = req.body;
-    let res_obj = {
-        type: "",
-        msg: ""
+    try{
+        //console.log(req.body);
+        let req_body = req.body;
+        let res_obj = {
+            type: "",
+            msg: ""
+        }
+        let bot_reply = talk(req_body.q, req_body.bot_status);
+        console.log(bot_reply)
+        res_obj.msg = bot_reply.reply[Math.floor(Math.random() * bot_reply.reply.length)];
+        res_obj.type = bot_reply.action_type;
+        //console.log(talk(req_body.q));
+        res.send(res_obj);
+        //res.send(undefined)
+    }catch(e){
+        console.log(e);
+        res.status(500).send({message: "Server Error!"})
     }
-    let bot_reply = talk(req_body.q, req_body.bot_status);
-    console.log(bot_reply)
-    res_obj.msg = bot_reply.reply[Math.floor(Math.random() * bot_reply.reply.length)];
-    res_obj.type = bot_reply.action_type;
-    //console.log(talk(req_body.q));
-    res.send(res_obj);
-    //res.send(undefined)
 });
 
 app.post("/q_autocomplete/", (req, res, next) => {
-    let q = req.body.q;
-    let bot_status = req.body.bot_status
-    let obj = query_autocomplete(q, bot_status);
-    let query = ""
-    if(obj) query = obj.Query;
-    console.log(query)
-    res.send({q: query});
+    try{
+        let q = req.body.q;
+        let bot_status = req.body.bot_status
+        let obj = query_autocomplete(q, bot_status);
+        let query = ""
+        if(obj) query = obj.Query;
+        console.log(query)
+        res.send({q: query});
+    }catch(e){
+        console.log(e);
+        res.status(500).send({message: "Server Error!"})
+    }
+});
+
+app.post("/q_inform_client/", (req, res, next) => {
+    try{
+        res.send.status(201).send({
+            info: "some necessary information"
+        });
+    }catch(e){
+        console.log(e);
+        res.status(500).send({message: "Server Error!"})
+    }
 });
 
 //https://khmtravel.com/uncategorized/travel-agent-questions-to-ask-clients/#:~:text=Questions%20a%20Travel%20Agent%20Should%20Ask%201%20How,be%20different%20from%20others%20you%20have%20been%20on%3F

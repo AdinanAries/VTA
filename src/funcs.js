@@ -1,5 +1,6 @@
-const g_dialogs = require("../data/dialogs.json");
+const g_dialogs = require("../data/dialogs");
 const snms = require("../data/synonyms.json");
+const constants = require("../constants/constants");
 
 //initial dialogs. makes possible to reset dialog
 var dialogs = {};
@@ -36,7 +37,7 @@ const evaluate = (submited_query, bot_status) => {
         }
     }
 
-    if(bot_status === "begin_air_booking"){
+    if(bot_status === constants.AGENT_STATE_NAMES.begin_air_booking){
         dialogs.Dialogs = dialogs.Dialogs.filter(each=>{
             return (each.Type.toLowerCase().trim() === bot_status.toLowerCase().trim())
         });
@@ -457,7 +458,7 @@ const query_autocomplete = (q, bot_status)=>{
     dialogs = {...g_dialogs};
     //console.log(dialogs);
 
-    if(bot_status === "begin_air_booking"){
+    if(bot_status === constants.AGENT_STATE_NAMES.begin_air_booking){
         dialogs.Dialogs = g_dialogs.Dialogs.filter(each=>{
             return (each.Type.toLowerCase().trim() === bot_status.toLowerCase().trim())
         });

@@ -1,4 +1,6 @@
-{
+const constants = require("../constants/constants");
+
+const g_dialogs = {
     "Dialogs":[
 
         {
@@ -280,7 +282,7 @@
                 "Ok.. cool...'"
             ]
         },{
-            "Type": "begin_air_booking",
+            "Type": constants.AGENT_STATE_NAMES.begin_air_booking,
             "Query": "i want to book a flight",
             "Keys": [
                 "", ""
@@ -303,7 +305,7 @@
                 "Why not. ✅ The timing is perfect on prices right now. <span class='support_chat_bot_msg_highlights'>From where to where?</span> Please say some thing like <span class='support_chat_bot_msg_highlights'>New York to Paris</span> so I can filter out some airports for you."
             ]
         },{
-            "Type": "begin_air_booking",
+            "Type": constants.AGENT_STATE_NAMES.begin_air_booking,
             "Query": "i want to travel",
             "Keys": [
                 "", ""
@@ -319,7 +321,7 @@
                 "KK cool 🙂... where are you traveling from and where are you traveling to? <br/>You can say something like... <span class='support_chat_bot_msg_highlights'>New York to Paris</span> ...or something like <span class='support_chat_bot_msg_highlights'>United States to France</span>"
             ]
         },{
-            "Type": "begin_air_booking",
+            "Type": constants.AGENT_STATE_NAMES.begin_air_booking,
             "Query": "i want to buy a ticket",
             "Keys": [
                 "", ""
@@ -335,7 +337,7 @@
                 "KK cool 🙂... where are you traveling from and where are you traveling to? <br/>You can say something like... <span class='support_chat_bot_msg_highlights'>New York to Paris</span> ...or something like <span class='support_chat_bot_msg_highlights'>United States to France</span>"
             ]
         },{
-            "Type": "begin_air_booking",
+            "Type": constants.AGENT_STATE_NAMES.begin_air_booking,
             "Query": "i want to buy a flight ticket",
             "Keys": [
                 "", ""
@@ -542,7 +544,7 @@
                 "I'm well.. and I hope you are too..."
             ]
         },{
-            "Type": "begin_air_booking",
+            "Type": constants.AGENT_STATE_NAMES.begin_air_booking,
             "Query": "i want to travel",
             "Keys": [
                 "", ""
@@ -558,7 +560,7 @@
                 "KK cool 🙂... where are you traveling from and where are you traveling to? <br/>You can say something like... <span class='support_chat_bot_msg_highlights'>New York to Paris</span> ...or something like <span class='support_chat_bot_msg_highlights'>United States to France</span>"
             ]
         },{
-            "Type": "begin_air_booking",
+            "Type": constants.AGENT_STATE_NAMES.begin_air_booking,
             "Query": "can i book a flight",
             "Keys": [
                 "", ""
@@ -729,3 +731,5 @@
     ]
     
 }
+
+module.exports = g_dialogs;
