@@ -1,10 +1,11 @@
 const constants = require("../constants/constants");
+const REPLIES = require("./agent_replies");
 
 const g_dialogs = {
     "Dialogs":[
 
         {
-            "Type": "help_options",
+            "Type": constants.AGENT_STATE_NAMES.help_options,
             "Query": "help",
             "Keys": [
                 "", ""
@@ -15,12 +16,9 @@ const g_dialogs = {
                     "", ""
                 ]
             },
-            "Reply": [
-                "oops! let me see how",
-                "Ok cool 🙂... Here are some options... <br/>1. if you want to book a flight, say <span class='support_chat_bot_msg_highlights'>'book a flight'</span>... <br/>2. if you want to cancel a flight, say <span class='support_chat_bot_msg_highlights'>'cancel my flight'</span>, ..."
-            ]
+            "Reply": REPLIES.help_options
         },{
-            "Type": "help_options",
+            "Type": constants.AGENT_STATE_NAMES.help_options,
             "Query": "get me help",
             "Keys": [
                 "", ""
@@ -31,12 +29,9 @@ const g_dialogs = {
                     "", ""
                 ]
             },
-            "Reply": [
-                "I'm sorry about that",
-                "Ok cool... Here are some options... 1. if you want to book a flight, say 'book a flight'... 2. if you want to cancel a flight, say 'cancel my flight', ..."
-            ]
+            "Reply": REPLIES.help_options
         },{
-            "Type": "help_options",
+            "Type": constants.AGENT_STATE_NAMES.help_options,
             "Query": "I need help",
             "Keys": [
                 "", ""
@@ -47,11 +42,9 @@ const g_dialogs = {
                     "", ""
                 ]
             },
-            "Reply": [
-                "Ok cool... Here are some options... 1. if you want to book a flight, say 'book a flight'... 2. if you want to cancel a flight, say 'cancel my flight', ..."
-            ]
+            "Reply": REPLIES.help_options
         },{
-            "Type": "help_options",
+            "Type": constants.AGENT_STATE_NAMES.help_options,
             "Query": "can somebody help me",
             "Keys": [
                 "", ""
@@ -62,11 +55,9 @@ const g_dialogs = {
                     "", ""
                 ]
             },
-            "Reply": [
-                "Ok cool... Here are some options... 1. if you want to book a flight, say 'book a flight'... 2. if you want to cancel a flight, say 'cancel my flight', ..."
-            ]
+            "Reply": REPLIES.help_options
         },{
-            "Type": "help_options",
+            "Type": constants.AGENT_STATE_NAMES.help_options,
             "Query": "can someone help me",
             "Keys": [
                 "", ""
@@ -77,11 +68,9 @@ const g_dialogs = {
                     "", ""
                 ]
             },
-            "Reply": [
-                "Ok cool... Here are some options... 1. if you want to book a flight, say 'book a flight'... 2. if you want to cancel a flight, say 'cancel my flight', ..."
-            ]
+            "Reply": REPLIES.help_options
         },{
-            "Type": "help_options",
+            "Type": constants.AGENT_STATE_NAMES.help_options,
             "Query": "give me options",
             "Keys": [
                 "", ""
@@ -92,9 +81,7 @@ const g_dialogs = {
                     "", ""
                 ]
             },
-            "Reply": [
-                "Ok cool... Here are some options... 1. if you want to book a flight, say 'book a flight'... 2. if you want to cancel a flight, say 'cancel my flight', ..."
-            ]
+            "Reply": REPLIES.help_options
         },{
             "Type": "list_help_options",
             "Query": "options",
@@ -111,7 +98,7 @@ const g_dialogs = {
                 "Ok cool... Here are some options... 1. if you want to book a flight, say 'book a flight'... 2. if you want to cancel a flight, say 'cancel my flight', ..."
             ]
         },{
-            "Type": "help_options",
+            "Type": constants.AGENT_STATE_NAMES.help_options,
             "Query": "help me",
             "Keys": [
                 "", ""
@@ -122,9 +109,7 @@ const g_dialogs = {
                     "", ""
                 ]
             },
-            "Reply": [
-                "Ok cool... Here are some options... 1. if you want to book a flight, say 'book a flight'... 2. if you want to cancel a flight, say 'cancel my flight', ..."
-            ]
+            "Reply": REPLIES.help_options
         },{
             "Type": "",
             "Query": "cheapest",
@@ -242,15 +227,7 @@ const g_dialogs = {
                     "", ""
                 ]
             },
-            "Reply": [
-                "Ok.. ☹️ ... I' always here, feel free to always reach out",
-                "I hope all is good. 🙁, feel free to reach out anytime",
-                "Ok cool... 🤞. Incase, you need to book another flight just let me know",
-                "Got it 😐... Let me know... 👈",
-                "Sure, no problem 👍🏽",
-                "Umm! 🤔. Never mind. Let me know whenever you need to book another flight",
-                "Oops! 😟... still looking good though... Let me know, anytime.."
-            ]
+            "Reply": REPLIES.stop_activity
         },{
             "Type": "",
             "Query": "yes",
@@ -263,9 +240,7 @@ const g_dialogs = {
                     "", ""
                 ]
             },
-            "Reply": [
-                "Ok.. cool...'"
-            ]
+            "Reply": REPLIES.confirmation
         },{
             "Type": "",
             "Query": "done",
@@ -278,9 +253,7 @@ const g_dialogs = {
                     "", ""
                 ]
             },
-            "Reply": [
-                "Ok.. cool...'"
-            ]
+            "Reply": REPLIES.confirmation
         },{
             "Type": constants.AGENT_STATE_NAMES.begin_air_booking,
             "Query": "i want to book a flight",
@@ -293,17 +266,7 @@ const g_dialogs = {
                     "", ""
                 ]
             },
-            "Reply": [
-                "🙂 Got it... from where to where? <br/>You can say something like... <span class='support_chat_bot_msg_highlights'>Brazil to Italy</span> ...or something like <span class='support_chat_bot_msg_highlights'>United States to France</span>",
-                "KK cool 🙂... where are you traveling from and where are you traveling to? <br/>You can say something like... <span class='support_chat_bot_msg_highlights'>Accra to London</span> ...or something like <span class='support_chat_bot_msg_highlights'>Laguardia to Toronto</span>",
-                "Hi! ✌🏽... cool, let's have you pick your departure and destination airports. You only have to say something like <span class='support_chat_bot_msg_highlights'>New York to London</span>.",
-                "Hi, Thanks for choosing us! My name is Alien Dough. I will be assisting you in booking your flight. My usual first step is to ask for your departure and destination airports. Just say something like <span class='support_chat_bot_msg_highlights'>Rome to Saudi Arabia</span> or... something like <span class='support_chat_bot_msg_highlights'>Italy to Uinted States</span>. So we can choose your airpots.",
-                "Hello! 🤝 My name Alien Dough. I will be helping you book your flight. Let's begin by choosing your departure and destination airports. Say some thing like <span class='support_chat_bot_msg_highlights'>New York to Paris</span> so we can filter out the airports 🌎 for you to choose.",
-                "😯, Are you watching the prices. They are dropping right on time. <span class='support_chat_bot_msg_highlights'>From where to where?</span> Please say something like <span class='support_chat_bot_msg_highlights'>New York to Paris</span> to find your airports. We need to book you fast before prices start going up again",
-                "Hola! 😁... Sure let find the airports first. <span class='support_chat_bot_msg_highlights'>From where to where?</span> Pleas say something like <span class='support_chat_bot_msg_highlights'>New York to Paris</span> so I can filter out some airports for you to choose from",
-                "Tadaa. 🎉 You know I was hoping that someone else was watching the prices as they are going down right now. Let's book you fast before anything changes. Please say something like <span class='support_chat_bot_msg_highlights'>New York to Paris</span> so we can choose your airports.",
-                "Why not. ✅ The timing is perfect on prices right now. <span class='support_chat_bot_msg_highlights'>From where to where?</span> Please say some thing like <span class='support_chat_bot_msg_highlights'>New York to Paris</span> so I can filter out some airports for you."
-            ]
+            "Reply": REPLIES.begin_air_booking
         },{
             "Type": constants.AGENT_STATE_NAMES.begin_air_booking,
             "Query": "i want to travel",
@@ -316,10 +279,7 @@ const g_dialogs = {
                     "", ""
                 ]
             },
-            "Reply": [
-                "🙂 Got it... from where to where? <br/>You can say something like... <span class='support_chat_bot_msg_highlights'>New York to Paris</span> ...or something like <span class='support_chat_bot_msg_highlights'>United States to France</span>",
-                "KK cool 🙂... where are you traveling from and where are you traveling to? <br/>You can say something like... <span class='support_chat_bot_msg_highlights'>New York to Paris</span> ...or something like <span class='support_chat_bot_msg_highlights'>United States to France</span>"
-            ]
+            "Reply": REPLIES.begin_air_booking
         },{
             "Type": constants.AGENT_STATE_NAMES.begin_air_booking,
             "Query": "i want to buy a ticket",
@@ -332,10 +292,7 @@ const g_dialogs = {
                     "", ""
                 ]
             },
-            "Reply": [
-                "🙂 Got it... from where to where? <br/>You can say something like... <span class='support_chat_bot_msg_highlights'>New York to Paris</span> ...or something like <span class='support_chat_bot_msg_highlights'>United States to France</span>",
-                "KK cool 🙂... where are you traveling from and where are you traveling to? <br/>You can say something like... <span class='support_chat_bot_msg_highlights'>New York to Paris</span> ...or something like <span class='support_chat_bot_msg_highlights'>United States to France</span>"
-            ]
+            "Reply": REPLIES.begin_air_booking
         },{
             "Type": constants.AGENT_STATE_NAMES.begin_air_booking,
             "Query": "i want to buy a flight ticket",
@@ -348,12 +305,9 @@ const g_dialogs = {
                     "", ""
                 ]
             },
-            "Reply": [
-                "🙂 Got it... from where to where? <br/>You can say something like... <span class='support_chat_bot_msg_highlights'>New York to Paris</span> ...or something like <span class='support_chat_bot_msg_highlights'>United States to France</span>",
-                "KK cool 🙂... where are you traveling from and where are you traveling to? <br/>You can say something like... <span class='support_chat_bot_msg_highlights'>New York to Paris</span> ...or something like <span class='support_chat_bot_msg_highlights'>United States to France</span>"
-            ]
+            "Reply": REPLIES.begin_air_booking
         },{
-            "Type": "greeting",
+            "Type": constants.AGENT_STATE_NAMES.greeting,
             "Query": "hey",
             "Keys": [
                 "", ""
@@ -370,7 +324,7 @@ const g_dialogs = {
                 "Hola 👋"
             ]
         },{
-            "Type": "greeting",
+            "Type": constants.AGENT_STATE_NAMES.greeting,
             "Query": "hi",
             "Keys": [
                 "", ""
@@ -387,7 +341,7 @@ const g_dialogs = {
                 "Hola 👋"
             ]
         },{
-            "Type": "greeting",
+            "Type": constants.AGENT_STATE_NAMES.greeting,
             "Query": "hola",
             "Keys": [
                 "", ""
@@ -404,7 +358,7 @@ const g_dialogs = {
                 "Hola 👋"
             ]
         },{
-            "Type": "confirm",
+            "Type": constants.AGENT_STATE_NAMES.confirm,
             "Query": "sorry",
             "Keys": [
                 "", ""
@@ -419,7 +373,7 @@ const g_dialogs = {
                 "No worries..."
             ]
         },{
-            "Type": "confirm",
+            "Type": constants.AGENT_STATE_NAMES.confirm,
             "Query": "thanks",
             "Keys": [
                 "", ""
@@ -434,7 +388,7 @@ const g_dialogs = {
                 "My pleasure..."
             ]
         },{
-            "Type": "confirm",
+            "Type": constants.AGENT_STATE_NAMES.confirm,
             "Query": "no",
             "Keys": [
                 "", ""
@@ -449,7 +403,7 @@ const g_dialogs = {
                 "Cool..."
             ]
         },{
-            "Type": "query",
+            "Type": constants.AGENT_STATE_NAMES.query,
             "Query": "who is your creator",
             "Keys": [
                 "", ""
@@ -465,7 +419,7 @@ const g_dialogs = {
                 "Mohammed Adinan did. He's a Software Engineer and Business man."
             ]
         },{
-            "Type": "query",
+            "Type": constants.AGENT_STATE_NAMES.query,
             "Query": "who created you",
             "Keys": [
                 "", ""
@@ -481,7 +435,7 @@ const g_dialogs = {
                 "Mohammed Adinan did. He's a Software Engineer and Business man."
             ]
         },{
-            "Type": "query",
+            "Type": constants.AGENT_STATE_NAMES.query,
             "Query": "can i check my flight status",
             "Keys": [
                 "", ""
@@ -496,7 +450,7 @@ const g_dialogs = {
                 "Sure, what is your ticket reference number?"
             ]
         },{
-            "Type": "query",
+            "Type": constants.AGENT_STATE_NAMES.query,
             "Query": "give me your name",
             "Keys": [
                 "", ""
@@ -512,7 +466,7 @@ const g_dialogs = {
                 "Alient Dough or AD if you will..."
             ]
         },{
-            "Type": "query",
+            "Type": constants.AGENT_STATE_NAMES.query,
             "Query": "what is your name",
             "Keys": [
                 "", ""
@@ -528,7 +482,7 @@ const g_dialogs = {
                 "Alien Dough aka AD"
             ]
         },{
-            "Type": "query",
+            "Type": constants.AGENT_STATE_NAMES.query,
             "Query": "how are you",
             "Keys": [
                 "", ""
@@ -555,10 +509,7 @@ const g_dialogs = {
                     "", ""
                 ]
             },
-            "Reply": [
-                "🙂 Got it... from where to where? <br/>You can say something like... <span class='support_chat_bot_msg_highlights'>New York to Paris</span> ...or something like <span class='support_chat_bot_msg_highlights'>United States to France</span>",
-                "KK cool 🙂... where are you traveling from and where are you traveling to? <br/>You can say something like... <span class='support_chat_bot_msg_highlights'>New York to Paris</span> ...or something like <span class='support_chat_bot_msg_highlights'>United States to France</span>"
-            ]
+            "Reply": REPLIES.begin_air_booking
         },{
             "Type": constants.AGENT_STATE_NAMES.begin_air_booking,
             "Query": "can i book a flight",
@@ -571,12 +522,9 @@ const g_dialogs = {
                     "", ""
                 ]
             },
-            "Reply": [
-                "🙂 Got it... from where to where? <br/>You can say something like... <span class='support_chat_bot_msg_highlights'>New York to Paris</span> ...or something like <span class='support_chat_bot_msg_highlights'>United States to France</span>",
-                "KK cool 🙂... where are you traveling from and where are you traveling to? <br/>You can say something like... <span class='support_chat_bot_msg_highlights'>New York to Paris</span> ...or something like <span class='support_chat_bot_msg_highlights'>United States to France</span>"
-            ]
+            "Reply": REPLIES.begin_air_booking
         },{
-            "Type": "query",
+            "Type": constants.AGENT_STATE_NAMES.help_options,
             "Query": "what can you do",
             "Keys": [
                 "", ""
@@ -587,9 +535,7 @@ const g_dialogs = {
                     "", ""
                 ]
             },
-            "Reply": [
-                "I can book your flights and also help you with post booking support.. I also have answers to some relevant questions you may have."
-            ]
+            "Reply": REPLIES.help_options
         },{
             "Type": "inform",
             "Query": "give me a minute",
@@ -621,7 +567,7 @@ const g_dialogs = {
                 "Sure... let me know"
             ]
         },{
-            "Type": "query",
+            "Type": constants.AGENT_STATE_NAMES.query,
             "Query": "who are you",
             "Keys": [
                 "", ""
