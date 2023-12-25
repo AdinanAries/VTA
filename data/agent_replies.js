@@ -40,8 +40,18 @@ const REPLIES = {
         "Hey, thanks... Please where are you traveling from and where are you traveling to? <br/>You can say something like... <span class='support_chat_bot_msg_highlights'>New York to Paris</span> ...or something like <span class='support_chat_bot_msg_highlights'>United States to France</span>",
         "Please from where to where? <br/>You can say something like... <span class='support_chat_bot_msg_highlights'>New York to Paris</span> ...or something like <span class='support_chat_bot_msg_highlights'>United States to France</span>",
         "OK, please where are you traveling from and where are you traveling to? <br/>You can say something like... <span class='support_chat_bot_msg_highlights'>New York to Paris</span> ...or something like <span class='support_chat_bot_msg_highlights'>United States to France</span>"
-            
-             
+    ],
+    who_created_you: [
+        "He is called Mohammed Adinan",
+        "Mohammed Adinan did. He's a Software Engineer and Business man.",
+        "Mohammed Adinan. Thank you!",
+        "Mohammed Adinan. He's a Software Engineer and Business man."
+    ],
+    who_am_i: [
+        "My name is Alien Dough... or AD for short.",
+        "Alient Dough or AD if you will...",
+        "My name is AD, short for Alien Dough",
+        "Alien Dough aka AD",
     ]
 
 }

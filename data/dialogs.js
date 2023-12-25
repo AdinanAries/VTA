@@ -414,10 +414,7 @@ const g_dialogs = {
                     "", ""
                 ]
             },
-            "Reply": [
-                "He is called Mohammed Adinan. Many call him MOH.",
-                "Mohammed Adinan did. He's a Software Engineer and Business man."
-            ]
+            "Reply": REPLIES.whow_created_you
         },{
             "Type": constants.AGENT_STATE_NAMES.query,
             "Query": "who created you",
@@ -430,10 +427,7 @@ const g_dialogs = {
                     "", ""
                 ]
             },
-            "Reply": [
-                "He is called Mohammed Adinan. Many call him MOH.",
-                "Mohammed Adinan did. He's a Software Engineer and Business man."
-            ]
+            "Reply": REPLIES.who_created_you
         },{
             "Type": constants.AGENT_STATE_NAMES.query,
             "Query": "can i check my flight status",
@@ -461,10 +455,7 @@ const g_dialogs = {
                     "", ""
                 ]
             },
-            "Reply": [
-                "My name is Alien Dough... or AD for short.",
-                "Alient Dough or AD if you will..."
-            ]
+            "Reply": REPLIES.who_am_i
         },{
             "Type": constants.AGENT_STATE_NAMES.query,
             "Query": "what is your name",
@@ -477,10 +468,7 @@ const g_dialogs = {
                     "", ""
                 ]
             },
-            "Reply": [
-                "My name is AD, short for Alien Dough",
-                "Alien Dough aka AD"
-            ]
+            "Reply": REPLIES.who_am_i
         },{
             "Type": constants.AGENT_STATE_NAMES.query,
             "Query": "how are you",
