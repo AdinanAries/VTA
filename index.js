@@ -3,6 +3,8 @@ const cors = require('cors');
 const app = express();
 
 const { talk, query_autocomplete } = require("./src/funcs");
+const constants = require("./constants/constants");
+const axios = require('axios');
 
 //talk();
 
@@ -41,12 +43,29 @@ app.post("/query_bot/", (req, res, next)=>{
             msg: ""
         }
         let bot_reply = talk(req_body.q, req_body.bot_status);
-        console.log(bot_reply)
+        console.log("reply::)", bot_reply);
         res_obj.msg = bot_reply.reply[Math.floor(Math.random() * bot_reply.reply.length)];
         res_obj.type = bot_reply.action_type;
-        //console.log(talk(req_body.q));
-        res.send(res_obj);
-        //res.send(undefined)
+
+        // Fall back to third party ai
+        if(bot_reply.score===0){
+            axios.post(constants.THIRD_PARTY.WELLDUGO_SERVER_URL, {
+                topic: "travel",
+                prompt: req_body.q,
+            }).then(response => {
+                res_obj.msg=response.data.answer;
+                res_obj.type=constants.AGENT_STATE_NAMES.third_pary_response;
+                res.send(res_obj);
+            }).catch(error => {
+                console.error("There was an error making the POST request to third party ai:", error);
+                res.send(res_obj);
+            });
+        } else {
+            //console.log(talk(req_body.q));
+            res.send(res_obj);
+            //res.send(undefined)
+        }
+
     }catch(e){
         console.log(e);
         res.status(500).send({message: "Server Error!"})

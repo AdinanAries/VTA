@@ -11,7 +11,7 @@ var dialogs = {};
 const talk = (query, bot_status) => {
     //console.log(dialogs);
     //console.log(evaluate("Sup What's? are you doing?"))
-    console.log(evaluate(query, bot_status))
+    //console.log(evaluate(query, bot_status))
     return evaluate(query, bot_status);
 }
 
@@ -22,6 +22,7 @@ const evaluate = (submited_query, bot_status) => {
 
     dialogs = {...g_dialogs};
 
+    // Nothing was entered during with the query
     if(submited_query === "" || submited_query === undefined){
         let replies = [
             "Umm, did you say something?",
@@ -37,17 +38,19 @@ const evaluate = (submited_query, bot_status) => {
         }
     }
 
+    // Filter down to only available queries for flight booking
     if(bot_status === constants.AGENT_STATE_NAMES.begin_air_booking){
-        dialogs.Dialogs = dialogs.Dialogs.filter(each=>{
+        dialogs.Dialogs = dialogs.Dialogs.filter( each => {
             return (each.Type.toLowerCase().trim() === bot_status.toLowerCase().trim())
         });
     }
 
-    //find If we have the exact words
-    let first_dialog = dialogs.Dialogs.filter(dialog=>{
+    // Find if we have query with the exact words submitted
+    let first_dialog = dialogs.Dialogs.filter( dialog => {
         return dialog.Query === submited_query.trim().toLowerCase();
     });
 
+    // If we have exact query words
     if(first_dialog.length > 0){
         return {
             action_type: first_dialog[0].Type,
@@ -57,6 +60,8 @@ const evaluate = (submited_query, bot_status) => {
             exact_query: first_dialog[0].Query
         }
     }
+
+    /*---------Start words processing here since we don't have exact query-------------*/
 
     //1. removing noise words returs {words, key_words}
     const { key_words, words } = cleanup(submited_query);
@@ -94,7 +99,7 @@ const evaluate = (submited_query, bot_status) => {
             });
         }
     });
-    //3. score matching dialogs and return appropriat response
+    //3. score matching dialogs and return appropriate response
     let {action_type, reply, score, exact_query, reason} = score_dialog(matching_dialogs, submited_query);
     if(score >= 50){
         return {action_type, exact_query, score, reply, reason};
