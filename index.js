@@ -40,7 +40,8 @@ app.post("/query_bot/", (req, res, next)=>{
         let req_body = req.body;
         let res_obj = {
             type: "",
-            msg: ""
+            sec_type: "",
+            msg: "",
         }
         let bot_reply = talk(req_body.q, req_body.bot_status);
         console.log("reply::)", bot_reply);
