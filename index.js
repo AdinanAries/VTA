@@ -54,7 +54,7 @@ app.post("/query_bot/", (req, res, next)=>{
                 prompt: req_body.q,
             }).then(response => {
                 res_obj.msg=response.data.answer;
-                res_obj.type=constants.AGENT_STATE_NAMES.third_pary_response;
+                res_obj.sec_type=constants.AGENT_STATE_NAMES.third_pary_response;
                 res.send(res_obj);
             }).catch(error => {
                 console.error("There was an error making the POST request to third party ai:", error);
