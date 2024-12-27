@@ -83,7 +83,7 @@ const g_dialogs = {
             },
             "Reply": REPLIES.help_options
         },{
-            "Type": "list_help_options",
+            "Type": constants.AGENT_STATE_NAMES.help_options, //"list_help_options",
             "Query": "options",
             "Keys": [
                 "", ""
@@ -94,9 +94,7 @@ const g_dialogs = {
                     "", ""
                 ]
             },
-            "Reply": [
-                "Ok cool... Here are some options... 1. if you want to book a flight, say 'book a flight'... 2. if you want to cancel a flight, say 'cancel my flight', ..."
-            ]
+            "Reply": REPLIES.help_options
         },{
             "Type": constants.AGENT_STATE_NAMES.help_options,
             "Query": "help me",
@@ -282,6 +280,214 @@ const g_dialogs = {
             "Reply": REPLIES.begin_air_booking
         },{
             "Type": constants.AGENT_STATE_NAMES.begin_air_booking,
+            "Query": "can i travel to",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": REPLIES.begin_air_booking
+        },{
+            "Type": constants.AGENT_STATE_NAMES.begin_air_booking,
+            "Query": "may i travel to",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": REPLIES.begin_air_booking
+        },{
+            "Type": constants.AGENT_STATE_NAMES.begin_air_booking,
+            "Query": "i would like to travel to",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": REPLIES.begin_air_booking
+        },{
+            "Type": constants.AGENT_STATE_NAMES.begin_air_booking,
+            "Query": "can i search flights",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": REPLIES.begin_air_booking
+        },{
+            "Type": constants.AGENT_STATE_NAMES.begin_air_booking,
+            "Query": "i want to search flights",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": REPLIES.begin_air_booking
+        },{
+            "Type": constants.AGENT_STATE_NAMES.begin_air_booking,
+            "Query": "can i book a flight ticket",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": REPLIES.begin_air_booking
+        },{
+            "Type": constants.AGENT_STATE_NAMES.begin_air_booking,
+            "Query": "I want to go to",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": REPLIES.begin_air_booking
+        },{
+            "Type": constants.AGENT_STATE_NAMES.begin_air_booking,
+            "Query": "let's book me a ticket",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": REPLIES.begin_air_booking
+        },{
+            "Type": constants.AGENT_STATE_NAMES.begin_air_booking,
+            "Query": "lets book a flight ticket",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": REPLIES.begin_air_booking
+        },{
+            "Type": constants.AGENT_STATE_NAMES.begin_air_booking,
+            "Query": "can you find me some flight tickets",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": REPLIES.begin_air_booking
+        },{
+            "Type": constants.AGENT_STATE_NAMES.begin_air_booking,
+            "Query": "may i book a flight",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": REPLIES.begin_air_booking
+        },{
+            "Type": constants.AGENT_STATE_NAMES.begin_air_booking,
+            "Query": "could i book a flight",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": REPLIES.begin_air_booking
+        },{
+            "Type": constants.AGENT_STATE_NAMES.begin_air_booking,
+            "Query": "let's book a flight",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": REPLIES.begin_air_booking
+        },{
+            "Type": constants.AGENT_STATE_NAMES.begin_air_booking,
+            "Query": "please get me a flight ticket",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": REPLIES.begin_air_booking
+        },{
+            "Type": constants.AGENT_STATE_NAMES.begin_air_booking,
+            "Query": "get me a flight ticket",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": REPLIES.begin_air_booking
+        },{
+            "Type": constants.AGENT_STATE_NAMES.begin_air_booking,
+            "Query": "can you find me some flights to",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": REPLIES.begin_air_booking
+        },{
+            "Type": constants.AGENT_STATE_NAMES.begin_air_booking,
             "Query": "i want to buy a ticket",
             "Keys": [
                 "", ""
@@ -414,10 +620,114 @@ const g_dialogs = {
                     "", ""
                 ]
             },
-            "Reply": REPLIES.whow_created_you
+            "Reply": REPLIES.who_created_you
         },{
             "Type": constants.AGENT_STATE_NAMES.query,
             "Query": "who created you",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": REPLIES.who_created_you
+        },{
+            "Type": constants.AGENT_STATE_NAMES.query,
+            "Query": "who made you",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": REPLIES.who_created_you
+        },{
+            "Type": constants.AGENT_STATE_NAMES.query,
+            "Query": "why were you created",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": REPLIES.who_created_you
+        },{
+            "Type": constants.AGENT_STATE_NAMES.query,
+            "Query": "tell me about your creator",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": REPLIES.who_created_you
+        },{
+            "Type": constants.AGENT_STATE_NAMES.query,
+            "Query": "tell me about the person who created you",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": REPLIES.who_created_you
+        },{
+            "Type": constants.AGENT_STATE_NAMES.query,
+            "Query": "tell me about who created you",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": REPLIES.who_created_you
+        },{
+            "Type": constants.AGENT_STATE_NAMES.query,
+            "Query": "did Mohammed create you?",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": REPLIES.who_created_you
+        },{
+            "Type": constants.AGENT_STATE_NAMES.query,
+            "Query": "did Mohammed Adinan create you",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": REPLIES.who_created_you
+        },{
+            "Type": constants.AGENT_STATE_NAMES.query,
+            "Query": "did Adinan create you",
             "Keys": [
                 "", ""
             ],
@@ -663,7 +973,7 @@ const g_dialogs = {
     "Suffixes":[
         "'s", "'m", "'ve", "'ll", "'d"
     ]
-    
+
 }
 
 module.exports = g_dialogs;

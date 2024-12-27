@@ -9,7 +9,8 @@ let constants = {
         confirm: "confirm",
         query: "query",
         third_pary_response: "third_pary_response",
-    }
+    },
+    AGENT_NAME: "Aide",
 }
 
 module.exports = constants;
