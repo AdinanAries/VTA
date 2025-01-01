@@ -9,9 +9,9 @@ const axios = require('axios');
 //talk();
 
 //Middlewares
-// For parsing application/json 
-app.use(express.json()); 
-// For parsing application/x-www-form-urlencoded 
+// For parsing application/json
+app.use(express.json());
+// For parsing application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 // For cross origin resource sharing
 app.use(cors({
@@ -49,7 +49,7 @@ app.post("/query_bot/", (req, res, next)=>{
         res_obj.type = bot_reply.action_type;
 
         // Fall back to third party ai
-        if(bot_reply.score===0){
+        if(bot_reply.score < 50){
             axios.post(constants.THIRD_PARTY.WELLDUGO_SERVER_URL, {
                 topic: "travel",
                 prompt: req_body.q,
