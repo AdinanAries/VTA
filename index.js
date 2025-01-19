@@ -39,6 +39,7 @@ app.post("/query_bot/", (req, res, next)=>{
         //console.log(req.body);
         let req_body = req.body;
         let res_obj = {
+            score: 0,
             type: "",
             sec_type: "",
             msg: "",
@@ -47,6 +48,7 @@ app.post("/query_bot/", (req, res, next)=>{
         console.log("reply::)", bot_reply);
         res_obj.msg = bot_reply.reply[Math.floor(Math.random() * bot_reply.reply.length)];
         res_obj.type = bot_reply.action_type;
+        res_obj.score = bot_reply.score;
 
         // Fall back to third party ai
         if(bot_reply.score < 50){
@@ -54,6 +56,7 @@ app.post("/query_bot/", (req, res, next)=>{
                 topic: "travel",
                 prompt: req_body.q,
             }).then(response => {
+                res_obj.type="";
                 res_obj.msg=response.data.answer;
                 res_obj.sec_type=constants.AGENT_STATE_NAMES.third_pary_response;
                 res.send(res_obj);

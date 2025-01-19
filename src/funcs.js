@@ -47,7 +47,7 @@ const evaluate = (submited_query, bot_status) => {
 
     // Find if we have query with the exact words submitted
     let first_dialog = dialogs.Dialogs.filter( dialog => {
-        return dialog.Query === submited_query.trim().toLowerCase();
+        return dialog.Query.trim().toLowerCase() === submited_query.trim().toLowerCase();
     });
 
     // If we have exact query words
@@ -95,7 +95,7 @@ const evaluate = (submited_query, bot_status) => {
                         matches: maching_dlgs
                     });
                 })
-                
+
             });
         }
     });
@@ -138,7 +138,7 @@ const score_dialog = (matches, submited_query) => {
                 if(matches[0][0].matches.length > 0){
                     if(matches[0][0].matches[0].Query.trim().replaceAll(" ", "") === submited_query.toLowerCase().trim().replaceAll(" ", "")){
                         //console.log("here");
-                        
+
                         return {
                             action_type: matches[0][0].matches[0].Type,
                             reason: "exact match",
@@ -161,7 +161,7 @@ const score_dialog = (matches, submited_query) => {
             //console.log(matches_arr);
             let isArry = Array.isArray(matches_arr);
             if(!isArry) matches_arr = [matches_arr]
-            
+
             if(matches_arr.length > 0){
                 matches_arr.forEach(each => {
                     if(each.matches.length > 0)
@@ -189,17 +189,17 @@ const score_dialog = (matches, submited_query) => {
     for(let i=0; i<q_matches.length; i++){
 
         for(let j=i+1; j<q_matches.length; j++){
-            
+
             //all matches that are the same
             if(q_matches[i].matches[0].Query === q_matches[j].matches[0].Query){
-                
+
                 let item_found = non_repetive_matches.find( item => {
                      return (
                          item.matches[0].Query === q_matches[j].matches[0].Query ||
                          item.matches[0].Query === q_matches[i].matches[0].Query
                     )
                 });
-                
+
                 //if item found, just continue, dont add to non repetitive list
                 if(item_found){
                     continue;
@@ -210,9 +210,9 @@ const score_dialog = (matches, submited_query) => {
             }
             //all matches that are not the same
             non_repetive_matches.push(q_matches[i]);
-            
+
         }
-        
+
     }
     //console.log(non_repetive_matches);
 
@@ -220,7 +220,7 @@ const score_dialog = (matches, submited_query) => {
     console.log("score: ", non_repetive_matches)
     let score_current_match = q_matches[0];
     non_repetive_matches.forEach(match=>{
-        
+
         let { occurrence_score, arrangement_score } = calc_query_score(match.matches[0].Query, submited_query);
         console.log("current score", occurrence_score+arrangement_score)
         console.log(score_current_match.matches[0].Query)
@@ -239,7 +239,7 @@ const score_dialog = (matches, submited_query) => {
     //when message has more wrong words than right ones
     //this is usefull for making query suggessions
     if(q_matches.length < q_unmatches.length){
-        
+
         let error_msg = [
             "Sorry I don't understand what you are saying",
             "Your message isn't clear to me...",
@@ -252,7 +252,7 @@ const score_dialog = (matches, submited_query) => {
             "Say the following instead",
             "Usually peaple say"
         ]
-        
+
         let accuracy_percentage = (100-(100*q_unmatches.length)/(q_matches.length+q_unmatches.length));
 
         let higher_percentege_middle_msg = [
@@ -339,7 +339,7 @@ const calc_query_score = (match_query, submited_query_p) => {
     let submited_query = submited_query_p.toLowerCase();
 
     //console.log(match_query, " : ", submited_query)
-    
+
     //calculating occurrence score
     let each_percentage = (50/match_query.split(" ").length);
     let prev_index = 0;
@@ -355,10 +355,10 @@ const calc_query_score = (match_query, submited_query_p) => {
             }
             temp_submited_query[current_index] = " "
             prev_index = current_index;
-            
-            
+
+
         }
-        //console.log("OC", occurrence_score, "AC", arrangement_score)
+        console.log("OC", occurrence_score, "AC", arrangement_score)
     });
 
     return {
@@ -396,7 +396,7 @@ const cleanup = (sentence) => {
 
 //removing punctuations
 const punct_cleanup = (word_p) => {
-    
+
     let word = word_p;
 
     dialogs.Punctuations.forEach(punct=>{
@@ -410,7 +410,7 @@ const punct_cleanup = (word_p) => {
 
 //removing suffixes
 const suffix_cleanup = (word_p) => {
-    
+
     let word = word_p;
 
     dialogs.Suffixes.forEach(sfx=>{
@@ -439,9 +439,9 @@ const get_matching_dialogs = (word_or_array) => {
     //dialog array is array of arrays
     //with each array represeting a word and the dialogs that contain it
     let dialogArr = [];
-    
+
     if(isArry){
-        
+
         word_or_array.forEach(word=>{
             let dlg = dialogs.Dialogs.filter(dialog=>{
                 return dialog.Query.split(" ").includes(word);
