@@ -2,7 +2,7 @@
     "SNMS": [
         ["hey", "hi", "sup", "whats up", "hello", "holla", "what's up"],
         ["travel", "fly", "trip", "book a trip", "take a trip"],
-        ["book", "buy", "purchase"]
+        ["book", "buy", "purchase"],
         ["thanks", "tanx", "thank you", "thank", "thanx"],
         ["travelodge", "hotel", "hotels", "hotel chain", "hotel chains", "stays"],
         ["kayak", "expedia", "expedia travel", "google travel", "wego flights", "aer lingus flights", "travelocity flights", "kiwi flights", "travel agency", "travel agencies", "online travel agency", "ota", "agency"],
@@ -32,13 +32,11 @@
         ["destination", "place", "arrival"],
         ["origin", "take-off"],
         ["cheap vacation packages"],
-
         ["national rail tickets"],
         ["large suitcase"],
         ["tourist places"],
         ["rail ticket booking"],
         ["international flight tickets"],
-
         ["travel websites"],
         ["bart trip planner"],
         ["cruising power"],
@@ -214,7 +212,7 @@
         ["vacations hawaii"],
         ["countries to visit"],
         ["ksrtc bus booking online"],
-        ["american express fine hotels and resorts"]
+        ["american express fine hotels and resorts"],
         ["make my trip flight booking"],
         ["cheap beach vacations"],
         ["travels with charley"],
@@ -301,8 +299,8 @@
         ["trip advisor flights"],
         ["best beach vacations"],
         ["hilton travel agent rates"],
-        ["travel booking"]
-        ["travelodge uk"]
+        ["travel booking"],
+        ["travelodge uk"],
         ["world of wanderlust"],
         ["travelodge sydney"],
         ["travel bag for women"],
@@ -395,7 +393,7 @@
         ["as we travel"],
         ["family vacation spots"],
         ["vintage travel"],
-        ["travelgirl"]
+        ["travelgirl"],
         ["nomadic matt’s travel site"],
         ["type a trips"],
         ["walt disney world vacation packages"],
@@ -428,6 +426,6 @@
         ["travel moments adventure and luxury travel"],
         ["cheap flights and hotels"],
         ["alfa coach holidays"],
-        ["travel light"],
+        ["travel light"]
     ]
 }

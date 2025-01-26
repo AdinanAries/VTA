@@ -267,6 +267,32 @@ const g_dialogs = {
             "Reply": REPLIES.begin_air_booking
         },{
             "Type": constants.AGENT_STATE_NAMES.begin_air_booking,
+            "Query": "book a flight ticket",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": REPLIES.begin_air_booking
+        },{
+            "Type": constants.AGENT_STATE_NAMES.begin_air_booking,
+            "Query": "book a flight",
+            "Keys": [
+                "", ""
+            ],
+            "Person":{
+                "Type": "",
+                "Keys": [
+                    "", ""
+                ]
+            },
+            "Reply": REPLIES.begin_air_booking
+        },{
+            "Type": constants.AGENT_STATE_NAMES.begin_air_booking,
             "Query": "i want to travel",
             "Keys": [
                 "", ""
